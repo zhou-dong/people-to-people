@@ -22,5 +22,8 @@ Use Skills, Positions, Educations, Compony or College Names as keywords to recom
 
 5. Calculation the similarity of people to each other
   - Use ”cosine similarity” to calculate similarity
+  - Each pair of people only compare once. We can use to method to do:
+    + Use graph to figure out what should we do
+    + Use book[] to book the pair have been compared
 
 6. Store all the information into a table.
