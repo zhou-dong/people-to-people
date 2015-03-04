@@ -7,6 +7,17 @@ Use Skills, Positions, Educations, Compony or College Names as keywords to recom
 
 1. Natural Language Processing
   - Calculate all the keywords appears in our project.
+  - Take off the "stop word" (we are not quite sure shall we do that)
+    + a boy => boy
+    + the picutre => picture
+  - Tokenizer words (Data Mining, Data mined, data mine should have same meaning).
+    + lower case words (DATA, DATa, DaTa, data) => data
+    + tokenizer words (Mining, mined, mine) => mine
+  - Same Meaning Words (a way to fixed cold start problem).
+    + If one person has just a few keywords, it is hard to recommendate people to them.
+    + We generated same Meaning Words for them.
+    + If two words appears together so frequency, we came assume they are same meaning.
+    + In different categories, we have different same meaning words.
 
 2. Divided keywords to different categories.
   - We believe different keywords in different categories should have different weight.
