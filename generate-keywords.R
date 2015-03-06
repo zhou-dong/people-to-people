@@ -26,7 +26,7 @@ fields = mongo.bson.from.buffer(fields)
 
 print(fields)
 
-cursor = mongo.find(mongo, ns = DBNS, query = query, fields = fields, limit = 100L)
+cursor = mongo.find(mongo, ns = DBNS, query = query, fields = fields, limit = 1000L)
 while (mongo.cursor.next(cursor)) {
     list = mongo.bson.to.list(mongo.cursor.value(cursor))
     length = (length(list))
@@ -35,17 +35,22 @@ while (mongo.cursor.next(cursor)) {
     attributes = list[2]
     for(variable in attributes) {
         obj = mongo.bson.buffer.create()
-        mongo.bson.buffer.append(obj, variable, 1)
+        mongo.bson.buffer.append(obj, variable, 1L)
         obj = mongo.bson.from.buffer(obj)
         print(obj)
         print(class(obj))
-        mongo.update(mongo = mongo, ns = skills, obj,objNew=1)
+        #mongo.update(mongo = mongo, ns = skills, obj,objNew=1)
+        
+        mongo.insert(mongo, skills,obj)
+        
         next
        # print(class(obj))
        # print(obj)
        # 
     }
 }
+err <- mongo.cursor.destroy(cursor)
+
 
 mongo.disconnect(mongo)
 mongo.destroy(mongo)
