@@ -8,6 +8,7 @@ tagline: -- Just do it, it will pay!
 1. We use the properties of skills to be keywords.
     - Method: Use map-reduce to generate data from mongodb.
     - Result: 
+    
         ```json
         {
                 "result" : "skills",
@@ -49,6 +50,7 @@ tagline: -- Just do it, it will pay!
             "value" : 1
         }
         ```
+        
     - Issue: 
         + Lots of descripions were long, can not match each other.
         + Have invalid character like: "\"
