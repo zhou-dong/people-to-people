@@ -1,10 +1,3 @@
----
-layout: page
-title: key words
-tagline: -- Just do it, it will pay!
----
-{% include JB/setup %}
-
 1. We use the properties of skills to be keywords.
     - Method: Use map-reduce to generate data from mongodb.
     - Result: 
