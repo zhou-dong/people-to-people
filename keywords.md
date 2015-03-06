@@ -57,7 +57,37 @@ tagline: -- Just do it, it will pay!
 
 2. Use Natural Language Processing method to clean the data
     - Remove the invalid character
-        + Like: "\"Hunter & Farmer\" mentalities" --&gt; Hunter & Farmer mentalities
+        ```json
+        {
+            "_id" : "Human Resource",
+            "value" : 1
+        }
+        {
+            "_id" : "Hunter Farmer mentalities",
+            "value" : 1
+        }
+        ```
     - Divided descripions of skill to single word as key word
-        + Like: Hunter & Farmer mentalities --&gt; Hunter, Farmer, mentalities
+        ```json
+        {
+            "_id" : "Human",
+            "value" : 1
+        }
+        {
+            "_id" : "Resource",
+            "value" : 1
+        }
+        {
+            "_id" : "Hunter",
+            "value" : 1
+        }
+        {
+            "_id" : "Farmer",
+            "value" : 1
+        }
+        {
+            "_id" : "mentalities",
+            "value" : 1
+        }
+        ```
     - Tokenizer words
