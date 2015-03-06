@@ -59,6 +59,7 @@ tagline: -- Just do it, it will pay!
 
 2. Use Natural Language Processing method to clean the data
     - Remove the invalid character
+        
         ```json
         {
             "_id" : "Human Resource",
@@ -70,6 +71,7 @@ tagline: -- Just do it, it will pay!
         }
         ```
     - Divided descripions of skill to single word as key word
+        
         ```json
         {
             "_id" : "Human",
