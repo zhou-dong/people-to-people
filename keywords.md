@@ -26,22 +26,6 @@
             "_id" : "\"Hunter & Farmer\" mentalities",
             "value" : 1
         }
-        {
-            "_id" : "\"ITIL\" Information technology Infrastructure Library",
-            "value" : 1
-        }
-        {
-            "_id" : "\"Liquidación de Sueldos y Jornales y cargas Sociales\"UBA",
-            "value" : 1
-        }
-        {
-            "_id" : "\"Médiation singulière\" Coach certifié CNAM",
-            "value" : 1
-        }
-        {
-             "_id" : "#Fluent English and Indonesian Language",
-            "value" : 1
-        }
         ```
         
     - Issue: 
