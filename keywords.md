@@ -122,4 +122,4 @@ tagline: -- Just do it, it will pay!
         ``` 
     
     - After that:
-        + "DAta mining", "Data Mined", "Mining DATA" --&gt; data mine
+        + "DAta mining", "Data Mined", "Mining DATA" --&gt; data, mine
