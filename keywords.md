@@ -70,23 +70,37 @@ tagline: -- Just do it, it will pay!
             "value" : 1
         }
         ```
+        
+    - lower case keywords, like: DATA, DAta, Data --&gt; data
+    
+        ```json
+        {
+            "_id" : "human resource",
+            "value" : 1
+        }
+        {
+            "_id" : "hunter farmer mentalities",
+            "value" : 1
+        }
+        ```
+        
     - Divided descripions of skill to single word as key word
         
         ```json
         {
-            "_id" : "Human",
+            "_id" : "human",
             "value" : 1
         }
         {
-            "_id" : "Resource",
+            "_id" : "resource",
             "value" : 1
         }
         {
-            "_id" : "Hunter",
+            "_id" : "hunter",
             "value" : 1
         }
         {
-            "_id" : "Farmer",
+            "_id" : "farmer",
             "value" : 1
         }
         {
@@ -94,7 +108,7 @@ tagline: -- Just do it, it will pay!
             "value" : 1
         }
         ```
-    - Tokenizer words
+    - Tokenizer words, like: mining, mined --&gt; mine
         
         ```json
         {
@@ -105,8 +119,7 @@ tagline: -- Just do it, it will pay!
             "_id" : "mental",
             "value" : 1
         }
-        {
-            "_id" : "Data Mining",
-            "value" : 1
-        }
-        ```
+        ``` 
+    
+    - After that:
+        + "DAta mining", "Data Mined", "Mining DATA" --&gt; data mine
