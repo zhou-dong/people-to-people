@@ -5,7 +5,7 @@ Use Skills, Positions, Educations, Compony or College Names as keywords to recom
 0. Generation all the keywords
   - From original data to generate keyword which we will use in our project. 
   - Use map-reduce to generate keywords in each category:
-    1. category skills:
+    1. In category skills:
     ```
     {
 	    "result" : "skills",
