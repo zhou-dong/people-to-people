@@ -95,3 +95,18 @@ tagline: -- Just do it, it will pay!
         }
         ```
     - Tokenizer words
+        
+        ```json
+        {
+            "_id" : "mentalities",
+            "value" : 1
+        }
+        {
+            "_id" : "mental",
+            "value" : 1
+        }
+        {
+            "_id" : "Data Mining",
+            "value" : 1
+        }
+        ```
