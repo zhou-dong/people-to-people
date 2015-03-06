@@ -29,13 +29,12 @@
         ```
         
     - Issue: 
-        + Lots of descripions were long, can not match each other.
-        + Have invalid character like: "\"
+        + Lots of descripions were long, can not match each other.    
     - Solution:
         + Use NLP method to clean the data.
 
-2. Use Natural Language Processing method to clean the data
-    - Remove the invalid character
+2. Use Natural Language Processing method to `Clean Data`
+    - Remove the invalid character. Like: "\"
         
         ```json
         {
