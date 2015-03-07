@@ -38,6 +38,7 @@
         |other  | 12.2% | other keywords total appear 12.2% |
     
     <img alt="keywords-percent" style="width:50%" src="/original-keywords-percent.png"/>
+    <img alt="keywords-data" style="width:50%" src="original-keywords-data.png"/>
     
     - Solution:
         + Use NLP method to clean the data.
