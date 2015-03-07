@@ -98,6 +98,23 @@
         "value" : 1
     }
     ```
+
+- Result:
+
+    ```json
+    {
+	    "result" : "cleaned-skills",
+	    "timeMillis" : 18601,
+	    "counts" : {
+		    "input" : 166294,
+		    "emit" : 538772,
+		    "reduce" : 94900,
+		    "output" : 71941
+	    },
+	    "ok" : 1
+    }
+    ```
+    
 - Tokenizer words, like: mining, mined --&gt; mine
     
     ```json
