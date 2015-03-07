@@ -115,6 +115,19 @@
     }
     ```
     
+    | Count | Percent | Description |
+    | :---: | :---: |:---|
+    | 1     | 80.6% | 80.6% keywords only appear once |
+    | 2     | 5.8%  | 5.8% of keywords appear twice |
+    | 3     | 1.4%  | 1.4% of keywords appear three time |
+    |other  | 12.2% | other keywords total appear 12.2% |
+    
+    <div style="text-align: center">
+    <img alt="keywords-data" src="img/cleaned-keywords-data.png"/>
+    <img alt="keywords-percent" src="img/cleaned-keywords-percent.png"/>
+    </div>
+    
+    
 - Tokenizer words, like: mining, mined --&gt; mine
     
     ```json
