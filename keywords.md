@@ -38,8 +38,8 @@
         |other  | 12.2% | other keywords total appear 12.2% |
     
     <div style="text-align: center">
-    <img alt="keywords-percent" style="max-width:45%; width:45%" src="/original-keywords-percent.png"/>
-    <img alt="keywords-data" style="max-width:45%; width:45%" src="original-keywords-data.png"/>
+    <img alt="keywords-data" src="original-keywords-data.png"/>
+    <img alt="keywords-percent" src="/original-keywords-percent.png"/>
     </div>
     
     - Solution:
