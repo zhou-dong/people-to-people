@@ -28,8 +28,14 @@
         }
         ```
         
-    - Issue: 
-        + Lots of descripions were long, can not match each other.    
+    - Issue: Lots of descripions were long, can not match each other.
+        | Count | Percent |
+        | :---: | :---: |
+        | 1     | 80.6% |
+        | 2     | 5.8%  |
+        | 3     | 1.4%  |
+        |other  | 12.2% |
+    
     - Solution:
         + Use NLP method to clean the data.
 
