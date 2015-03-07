@@ -37,9 +37,10 @@
         | 3     | 1.4%  | 1.4% of keywords appear three time |
         |other  | 12.2% | other keywords total appear 12.2% |
     
-    
+    <div style="text-align: center">
     <img alt="keywords-percent" style="max-width:45%; width:45%" src="/original-keywords-percent.png"/>
     <img alt="keywords-data" style="max-width:45%; width:45%" src="original-keywords-data.png"/>
+    </div>
     
     - Solution:
         + Use NLP method to clean the data.
