@@ -29,6 +29,7 @@
         ```
         
     - Issue: Lots of descripions were long, can not match each other.
+    
         | Count | Percent |
         | :---: | :---: |
         | 1     | 80.6% |
