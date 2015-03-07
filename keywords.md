@@ -1,4 +1,4 @@
-# Operation of Keywords
+# Clean Data
 
 ## We use the properties of skills to be keywords.
 - Method: Use map-reduce to generate data from mongodb.
