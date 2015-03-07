@@ -1,3 +1,5 @@
+# Operation of Keywords
+
 1. We use the properties of skills to be keywords.
     - Method: Use map-reduce to generate data from mongodb.
     - Result: 
@@ -38,8 +40,8 @@
         |other  | 12.2% | other keywords total appear 12.2% |
     
     <div style="text-align: center">
-    <img alt="keywords-data" src="original-keywords-data.png"/>
-    <img alt="keywords-percent" src="/original-keywords-percent.png"/>
+    <img alt="keywords-data" src="img/original-keywords-data.png"/>
+    <img alt="keywords-percent" src="img/original-keywords-percent.png"/>
     </div>
     
     - Solution:
