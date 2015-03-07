@@ -4,8 +4,8 @@ Use Skills, Positions, Educations, Compony or College Names as keywords to recom
 
 0. Generation all the keywords
   - From original data to generate keyword which we will use in our project. 
-1. Natural Language Processing
-  - Calculate all the keywords appears in our project.
+1. Clean Data
+  - Natural Language Processing
   - Take off the "stop word" (we are not quite sure shall we do that)
     + a boy => boy
     + the picutre => picture
