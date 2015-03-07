@@ -118,7 +118,7 @@
     | Count | Percent | Description |
     | :---: | :---: |:---|
     | 1     | 57.7% | 57.7% keywords appear once |
-    | 2     | 11.7%  | 11.5% of keywords appear twice |
+    | 2     | 11.7%  | 11.7% of keywords appear twice |
     | 3     | 5.5%  | 5.5% of keywords appear three time |
     |other  | 25.1% | other keywords total appear 25.1% |
     
