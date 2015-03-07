@@ -30,12 +30,12 @@
         
     - Issue: Lots of descripions were long, can not match each other.
     
-        | Count | Percent |
-        | :---: | :---: |
-        | 1     | 80.6% |
-        | 2     | 5.8%  |
-        | 3     | 1.4%  |
-        |other  | 12.2% |
+        | Count | Percent | Description |
+        | :---: | :---: |:---|
+        | 1     | 80.6% | 80.6% keywords only appear once |
+        | 2     | 5.8%  | 5.8% of keywords appear twice |
+        | 3     | 1.4%  | 1.4% of keywords appear three time |
+        |other  | 12.2% | other keywords total appear 12.2% |
     
     - Solution:
         + Use NLP method to clean the data.
