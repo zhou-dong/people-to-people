@@ -170,3 +170,5 @@
     	<img alt="keywords-data" src="img/stem-keywords-data.png"/>
     	<img alt="keywords-percent" src="img/stem-keywords-percent.png"/>
     </div>
+    
+- Remove the word only appear once (which means those words no useful for recommendation)
