@@ -24,18 +24,20 @@ def isUpdate(obj, keyword):
     except:
         print keyword
 
+def stemKeyword(keyword):
+    try:
+        return st.stem(keyword)
+    except:
+        print "stem exception: ",  keyword
+        return keyword
+
 def insertStemWord(time):
     begin = time * limit
     cursor = collection.find().skip(begin).limit(limit)
     for obj in cursor :
         keyword = obj["_id"]
         isUpdate(obj, keyword)
-        try:
-            stem_keyword = st.stem(keyword)
-        except:
-            print "stem exception: ",  keyword
-            stem_keyword = keyword
-        obj["stem"] = stem_keyword
+        obj["stem"] = stemKeyword(keyword)
         collection.update({'_id': keyword}, obj, True)
     print (begin + limit), "finished"
 
