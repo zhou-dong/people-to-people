@@ -172,6 +172,7 @@
     </div>
     
 - Remove the word only appear once (which means those words no useful for recommendation)
+
 ```json
 {
 	"result" : "final_skills",
@@ -185,6 +186,8 @@
 	"ok" : 1
 }
 ```
+
+
     | Count | Percent | Description |
     | :---: | :---: |:---|
     | 1     | 27.6% | 27.6% keywords appear twice |
