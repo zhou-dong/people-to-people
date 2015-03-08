@@ -148,12 +148,12 @@
 	```json
 	{
 		"result" : "stem_skills",
-		"timeMillis" : 11647,
+		"timeMillis" : 5915,
 		"counts" : {
 			"input" : 71941,
 			"emit" : 71941,
 			"reduce" : 8301,
-			"output" : 55114
+			"output" : 54772
 		},
 		"ok" : 1
 	}
