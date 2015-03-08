@@ -48,7 +48,7 @@
     + Use NLP method to clean the data.
 
 ## Use Natural Language Processing method to `Clean Data`
-- Remove the invalid character. Like: "\"
+- Remove the invalid character. Like: "\, &, $, %"
     
     ```json
     {
@@ -61,7 +61,7 @@
     }
     ```
     
-- lower case keywords, like: DATA, DAta, Data --&gt; data
+- `Lower Case Words`, like: DATA, DAta, Data --&gt; data
     
     ```json
     {
