@@ -40,8 +40,8 @@
     |other  | 12.2% | other keywords total appear 12.2% |
     
     <div style="text-align: center">
-    <img alt="keywords-data" src="img/original-keywords-data.png"/>
-    <img alt="keywords-percent" src="img/original-keywords-percent.png"/>
+    	<img alt="keywords-data" src="img/original-keywords-data.png"/>
+    	<img alt="keywords-percent" src="img/original-keywords-percent.png"/>
     </div>
     
 - Solution:
@@ -123,8 +123,8 @@
     |other  | 25.1% | other keywords total appear 25.1% |
     
     <div style="text-align: center">
-    <img alt="keywords-data" src="img/cleaned-keywords-data.png"/>
-    <img alt="keywords-percent" src="img/cleaned-keywords-percent.png"/>
+    	<img alt="keywords-data" src="img/cleaned-keywords-data.png"/>
+    	<img alt="keywords-percent" src="img/cleaned-keywords-percent.png"/>
     </div>
     
     
@@ -143,3 +143,30 @@
     
 - After that:
     + "DAta mining", "Data Mined", "Mining DATA" --&gt; data, mine
+- Result:
+	
+	```json
+	{
+		"result" : "stem_skills",
+		"timeMillis" : 6013,
+		"counts" : {
+			"input" : 71941,
+			"emit" : 71941,
+			"reduce" : 8062,
+			"output" : 55065
+		},
+		"ok" : 1
+	}
+	```
+
+	| Count | Percent | Description |
+    | :---: | :---: |:---|
+    | 1     | 57.7% | 57.7% keywords appear once |
+    | 2     | 11.7%  | 11.7% of keywords appear twice |
+    | 3     | 5.5%  | 5.5% of keywords appear three time |
+    |other  | 25.1% | other keywords total appear 25.1% |
+    
+    <div style="text-align: center">
+    	<img alt="keywords-data" src="img/cleaned-keywords-data.png"/>
+    	<img alt="keywords-percent" src="img/cleaned-keywords-percent.png"/>
+    </div>
