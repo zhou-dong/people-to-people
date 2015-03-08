@@ -161,12 +161,14 @@
 
 	| Count | Percent | Description |
     | :---: | :---: |:---|
-    | 1     | 57.7% | 57.7% keywords appear once |
-    | 2     | 11.7%  | 11.7% of keywords appear twice |
-    | 3     | 5.5%  | 5.5% of keywords appear three time |
-    |other  | 25.1% | other keywords total appear 25.1% |
+    | 1     | 58.7% | 58.7% keywords appear once |
+    | 2     | 11.4%  | 11.4% of keywords appear twice |
+    | 3     | 5.2%  | 5.2% of keywords appear three time |
+    |other  | 24.7% | other keywords total appear 24.7% |
     
     <div style="text-align: center">
-    	<img alt="keywords-data" src="img/cleaned-keywords-data.png"/>
-    	<img alt="keywords-percent" src="img/cleaned-keywords-percent.png"/>
+    	<img alt="keywords-data" src="img/stem-keywords-data.png"/>
+    	<img alt="keywords-percent" src="img/stem-keywords-percent.png"/>
     </div>
+    
+- Remove the word only appear once (which means those words no useful for recommendation)
