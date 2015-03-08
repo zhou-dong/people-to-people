@@ -5,7 +5,7 @@ mongo <- mongo.create()
 if (!mongo.is.connected(mongo))
     error("No connection to MongoDB")
 
-db_skills <- "linkedin.cleaned_skills"
+db_skills <- "linkedin.stem_skills"
 
 query = mongo.bson.buffer.create()
 query = mongo.bson.from.buffer(query)
@@ -43,8 +43,8 @@ mongo.destroy(mongo)
 
 counts <- counts[!is.na(counts)]
 counts <- counts[counts > 0]
-# print(sum(counts))
+print(sum(counts))
 
 count_labels <- round(counts/sum(counts) * 100, 1)
-# pie(counts, main="Cleaned Keywords", col=rainbow(length(cars)), labels=count_labels)
-pie(counts, main="Cleaned Keywords", col=rainbow(length(cars)))
+pie(counts, main="Stemed Keywords", col=rainbow(length(cars)), labels=count_labels)
+# pie(counts, main="Stemed Keywords", col=rainbow(length(cars)))
