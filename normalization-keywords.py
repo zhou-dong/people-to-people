@@ -2,12 +2,14 @@
 
 from pymongo import MongoClient
 from nltk.stem.lancaster import LancasterStemmer
+from nltk.stem import WordNetLemmatizer
 
 st = LancasterStemmer()
+wnl = WordNetLemmatizer()
 
 client = MongoClient()
 db = client['linkedin']
-collection = db['cleaned-skills']
+collection = db['cleaned_skills']
 
 def calculateCursorTime(limit):
     totalCount =  collection.count()
@@ -26,7 +28,8 @@ def isUpdate(obj, keyword):
 
 def stemKeyword(keyword):
     try:
-        return st.stem(keyword)
+        tmp = wnl.lemmatize(keyword)
+        return st.stem(tmp)
     except:
         print "stem exception: ",  keyword
         return keyword
