@@ -74,7 +74,7 @@
     }
     ```
         
-- Divided descripions of skill to single word as key word
+- `Word Tokenizer`
         
     ```json
     {
@@ -128,7 +128,7 @@
     </div>
     
     
-- Tokenizer words, like: mining, mined --&gt; mine
+- `Token Normalization` like: mining, mined --&gt; mine
     
     ```json
     {
