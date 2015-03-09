@@ -1,11 +1,19 @@
 var mapFunction = function(){
     var key = this.stem ;
-    var value = { keyword: this._id, count: this.value} ;
+    var value = { keywords: this._id, count: this.value, counts: 0} ;
     emit(key, value);
 } ;
 
 var reduceFunction = function(key, values){
-    return JSON.stringify(values) ;
+    var keyword = JSON.stringify(values);
+    var length = 0;
+    try {
+        var json = JSON.parse(keyword);
+        length += json.length ;
+    } catch(e) {
+    }
+    var result = {counts: length, keywords: keyword};
+    return result ;
 };
 
 var finalizeFunction = function (key, reducedValue) {
