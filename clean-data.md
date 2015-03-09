@@ -197,3 +197,19 @@
     <div style="text-align: center">
     	<img alt="keywords-percent" src="img/final-keywords-percent.png"/>
     </div>
+
+- Analyze of Stemed Words:
+
+	```json
+	{
+		"result" : "stemed_keywords",
+		"timeMillis" : 8544,
+		"counts" : {
+			"input" : 71941,
+			"emit" : 71941,
+			"reduce" : 8353,
+			"output" : 54772
+		},
+		"ok" : 1
+	}
+	```
