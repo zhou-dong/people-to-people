@@ -218,6 +218,6 @@
 
 - Example:
 
-<img alt="keywords-percent" src="img/stem-progra,.png"/>
+<img alt="keywords-percent" src="img/stem-program.png"/>
 <img alt="keywords-percent" src="img/stem-person.png"/>
 
