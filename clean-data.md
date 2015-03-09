@@ -214,4 +214,4 @@
 	}
 	```
 
-	<img alt="keywords-percent" src="img/best-stems.png"/>
+<img alt="keywords-percent" src="img/best-stems.png"/>
