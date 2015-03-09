@@ -213,3 +213,5 @@
 		"ok" : 1
 	}
 	```
+
+	<img alt="keywords-percent" src="img/best-stems.png"/>
