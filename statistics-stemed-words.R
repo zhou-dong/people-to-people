@@ -22,6 +22,4 @@ err <- mongo.cursor.destroy(cursor)
 mongo.disconnect(mongo)
 mongo.destroy(mongo)
 
-print(counts)
-
 barplot(counts,col=rainbow(15L), main="Best Stems", ylab = "Count", beside=TRUE ,names.arg=stems)
