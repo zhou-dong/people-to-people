@@ -161,10 +161,10 @@
 
 	| Count | Percent | Description |
     | :---: | :---: |:---|
-    | 1     | 58.7% | 58.7% keywords appear once |
-    | 2     | 11.4%  | 11.4% of keywords appear twice |
-    | 3     | 5.2%  | 5.2% of keywords appear three time |
-    |other  | 24.7% | other keywords total appear 24.7% |
+    | 1     | 16.9% | 16.9% keywords appear once |
+    | 2     | 43.3%  | 43.3% of keywords appear twice |
+    | 3     | 9.4%  | 9.4% of keywords appear four time |
+    |other  | 30.4% | other keywords total appear 30.4% |
     
     <div style="text-align: center">
     	<img alt="keywords-data" src="img/stem-keywords-data.png"/>
