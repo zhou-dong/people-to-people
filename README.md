@@ -14,6 +14,7 @@ Use Skills, Positions, Educations, Compony or College Names as keywords to recom
   - <img alt="keywords-percent" src="img/stem-person.png"/>
 3. Caculate weight of the keywords in each category.
  - Heighest Weight
+
 | Keyword | market |microsoft |develop | busy| plan | analys | off | 
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | Count | 52188 | 52555 | 50644 | 44146 | 42731 | 38805 | 37878 | 
