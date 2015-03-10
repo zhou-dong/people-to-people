@@ -2,28 +2,26 @@
 People to people recommendation project with R language.
 Use Skills, Positions, Educations, Compony or College Names as keywords to recommendate people to each other.
 
-1. Generation all the keywords
-  - From original data to generate keyword which we will use in our project. 
-2. Clean Data
-  - Natural Language Processing
-  - Take off the "stop word" (we are not quite sure shall we do that)
-    + a boy => boy
-    + the picutre => picture
-  - Tokenizer words (Data Mining, Data mined, data mine should have same meaning).
-    + lower case words (DATA, DATa, DaTa, data) => data
-    + tokenizer words (Mining, mined, mine) => mine
-3. For Cold start problem: Same Meaning Words (a way to fixed cold start problem).
+1. Clean Data
+  - From:
+  - <img alt="keywords-percent" src="img/original-keywords-percent.png"/>
+  - To:
+  - <img alt="keywords-percent" src="img/final-keywords-percent.png"/>
+2. Generate Keywords
+  - Result:
+  - <img alt="keywords-percent" src="img/stem-program.png"/>
+  - <img alt="keywords-percent" src="img/stem-person.png"/>
+3. Caculation the weight of the keywords in each category.
+  - TF
+  - IDF
+5. For Cold start problem: Same Meaning Words (a way to fixed cold start problem).
     + If one person has just a few keywords, it is hard to recommendate people to them.
     + We generated same Meaning Words for them.
     + If two words appears together so frequency, we came assume they are same meaning.
     + In different categories, we have different same meaning words.
 
-4. Divided keywords to different categories.
+5. Divided keywords to different categories.
   - We believe different keywords in different categories should have different weight.
-
-5. Caculation the weight of the keywords in each category.
-  - TF
-  - IDF
 
 6. Use category.keyword to represent every people
   - Every people is a vector represent by keywords {...}[0 or weight]
