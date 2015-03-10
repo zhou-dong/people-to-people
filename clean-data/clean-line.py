@@ -47,7 +47,7 @@ class CleanLine:
 
     def stemWord(self, keyword):
         try:
-            # return nltk.RSLPStemmer().stem(keyword)
+            #return nltk.RSLPStemmer().stem(keyword)
             #return nltk.PorterStemmer().stem(keyword)
             keyword = WordNetLemmatizer().lemmatize(keyword)
             return LancasterStemmer().stem(keyword)
