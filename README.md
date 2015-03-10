@@ -9,6 +9,7 @@ Use Skills, Positions, Educations, Compony or College Names as keywords to recom
   - <img alt="keywords-percent" src="img/final-keywords-percent.png"/>
 2. Generate Keywords
   - Result:
+  - <img alt="keywords-percent" src="img/best-stems.png"/>
   - <img alt="keywords-percent" src="img/stem-program.png"/>
   - <img alt="keywords-percent" src="img/stem-person.png"/>
 3. Caculation the weight of the keywords in each category.
