@@ -14,17 +14,19 @@ Use Skills, Positions, Educations, Compony or College Names as keywords to recom
   - <img alt="keywords-percent" src="img/stem-person.png"/>
 3. Caculate weight of the keywords in each category.
  - Height Weight
+ - 
 | Keyword | market |microsoft |develop | busy| plan | analys | off | 
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | Count | 52188 | 52555 | 50644 | 44146 | 42731 | 38805 | 37878 | 
 | Weight |36.785665 |36.781846 |36.781428 |36.382975 |36.209036 |35.547924 |35.351517 |
 - Lowest Weight
+
 | Keyword | c8 |conceptualización |cu | f3| fc | 00 | 2h | 3h | 57 | 58 | 62 | 89 | 8x | 
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | Count | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 |
 | Weight |0.012231 |0.012231 |0.012231 |0.012231 |0.012231 |0.012231 |0.012231 |0.012231 | 0.012231 |0.012231 |0.012231 |0.012231 |0.012231 |0.012231 |
 
-5. For Cold start problem: Same Meaning Words (a way to fixed cold start problem).
+4. For Cold start problem: Same Meaning Words (a way to fixed cold start problem).
     + If one person has just a few keywords, it is hard to recommendate people to them.
     + We generated same Meaning Words for them.
     + If two words appears together so frequency, we came assume they are same meaning.
