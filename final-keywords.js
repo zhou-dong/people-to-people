@@ -2,7 +2,7 @@ var mapFunction = function(){
     if(this._id=="" || this._id==null || this._id == undefined || this._id ==" "){
         return ;
     }
-    if (this.value > 1) {
+    if (this.value > 2) {
         emit(this._id, this.value);
     }
 } ;

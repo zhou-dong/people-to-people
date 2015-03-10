@@ -22,9 +22,9 @@ def calculateCursorTime(limit):
 def isUpdate(obj, keyword):
     try:
         if(None==obj["stem"]):
-            print keyword
+            print "None stem: ", keyword
     except:
-        print keyword
+        print "error: ", keyword
 
 def stemKeyword(keyword):
     try:
