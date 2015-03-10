@@ -195,6 +195,7 @@
     |...  | ... | ... |
     
     <div style="text-align: center">
+    	<img alt="keywords-percent" src="img/final-keywords-data.png"/>
     	<img alt="keywords-percent" src="img/final-keywords-percent.png"/>
     </div>
 
