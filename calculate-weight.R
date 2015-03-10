@@ -41,6 +41,10 @@ updateLimitData <- function(time_count){
         value = mongo.cursor.value(cursor)
         id <- mongo.bson.value(value, '_id')
         
+        tmpWeight <- mongo.bson.value(value, 'weight')
+        
+        try(if(NULL!=tmpWeight){next},silent = TRUE)
+        
         criteria <- mongo.bson.buffer.create()
         mongo.bson.buffer.append(criteria, "_id", id)
         criteria <- mongo.bson.from.buffer(criteria)
@@ -55,6 +59,8 @@ updateLimitData <- function(time_count){
         
         mongo.update(mongo,ns,criteria,objNew)
     }
+    
+    print(skip_number)
 }
 
 ns = "linkedin.final_skills"
