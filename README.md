@@ -36,8 +36,9 @@
 
 - Method: Weight = TF * IDF
 
-### 4. Improve: FT-Growth tree
+### 4. Improve: Same Meaning Words 
 
++ Method: FT-Growth tree
 + For Cold start problem: Same Meaning Words (a way to fixed cold start problem).
 + If one person has just a few keywords, it is hard to recommendate people to them.
 + We generated same Meaning Words for them.
