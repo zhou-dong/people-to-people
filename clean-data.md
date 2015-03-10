@@ -215,3 +215,9 @@
 	```
 
 <img alt="keywords-percent" src="img/best-stems.png"/>
+
+- Example:
+
+<img alt="keywords-percent" src="img/stem-program.png"/>
+<img alt="keywords-percent" src="img/stem-person.png"/>
+
