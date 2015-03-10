@@ -24,6 +24,11 @@ Height Weight
 | med | 24878 | 30.673079 |
 | strategy | 24108 | 30.263969 |
 
+| Keyword | market |microsoft |develop |  busy|plan|analys|off|serv|design|custom|project|rel|fin|med|strategy|
+| :--- | ---: | ---: |
+|Count |52188|52555|50644|44146|42731|38805|37878|37292|35346|30470|29760|27543|26270|24878|24878|
+| Weight |36.785665 |36.781846 |36.781428 |36.382975 |36.209036 |35.547924 |35.351517 |35.219041 | 34.731434 |33.164123 |32.891472 |31.961031 |31.369897 |30.673079 |30.263969 |
+
 Lowest Weight
 
 | Keyword | Count | Weight |  
