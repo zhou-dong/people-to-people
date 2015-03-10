@@ -4,7 +4,7 @@
 - TF(t) = (Number of times term t appears in one category) / (Most frequent times a word appears in same category).
 - IDF(t)= logarithmic(Total number of persons / Number of persons with term t in it)
 
-| | Count | Weight |  
+| Keyword | Count | Weight |  
 | :--- | ---: | ---: |
 | coach |8237 | 5.918780 |
 | direct | 8234 | 5.918762 |
