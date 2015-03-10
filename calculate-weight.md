@@ -4,7 +4,7 @@
 - TF(t) = (Number of times term t appears in one category) / (Most frequent times a word appears in same category).
 - IDF(t)= logarithmic(Total number of persons / Number of persons with term t in it)
 
-Highest Weight
+<div>
 
 | Keyword | Count | Weight |  
 | :--- | ---: | ---: |
@@ -24,8 +24,6 @@ Highest Weight
 | med | 24878 | 30.673079 |
 | strategy | 24108 | 30.263969 |
 
-Lowest Weight
-
 | Keyword | Count | Weight |  
 | :--- | ---: | ---: |
 | c8 |3 | 0.012231 |
@@ -42,3 +40,4 @@ Lowest Weight
 | 62 | 3 | 0.012231 |
 | 89 | 3 | 0.012231 |
 | 8x | 3 | 0.012231 |
+</div>
