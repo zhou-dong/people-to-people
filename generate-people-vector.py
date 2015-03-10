@@ -5,6 +5,10 @@ from nltk.stem import WordNetLemmatizer
 st = LancasterStemmer()
 wnl = WordNetLemmatizer()
 
+def calculateCursorTime(self, total, limit):
+    result = total / limit
+return result if total % limit == 0 else result + 1
+
 def calculateCursorTime(total, limit):
     result = total / limit
     if total % limit == 0 :
