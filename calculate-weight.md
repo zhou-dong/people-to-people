@@ -25,9 +25,9 @@ Height Weight
 | strategy | 24108 | 30.263969 |
 
 
-| Keyword | market |microsoft |develop |  busy|plan|analys|off|serv|design|custom|project|rel|fin|med|strategy|
-|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-|Count |52188|52555|50644|44146|42731|38805|37878|37292|35346|30470|29760|27543|26270|24878|24878|
+| Keyword | market |microsoft |develop | busy| plan | analys | off | serv | design | custom | project | rel | fin | med | strategy |
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| Count | 52188 | 52555 | 50644 | 44146 | 42731 | 38805 | 37878 | 37292 | 35346 | 30470 | 29760 | 27543 | 26270 | 24878 | 24878 |
 
 
 
