@@ -46,5 +46,5 @@ counts <- counts[counts > 0]
 # print(sum(counts))
 
 count_labels <- round(counts/sum(counts) * 100, 1)
-# pie(counts, main="Cleaned Keywords", col=rainbow(length(cars)), labels=count_labels)
-pie(counts, main="Cleaned Keywords", col=rainbow(length(cars)))
+pie(counts, main="Cleaned Keywords", col=rainbow(length(cars)), labels=count_labels)
+# pie(counts, main="Cleaned Keywords", col=rainbow(length(cars)))
