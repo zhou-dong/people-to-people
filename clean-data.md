@@ -1,6 +1,7 @@
 # Clean Data
 
 ## We use the properties of skills to be keywords.
+
 - Method: Use map-reduce to generate data from mongodb.
 - Result: 
     
@@ -47,7 +48,8 @@
 - Solution:
     + Use NLP method to clean the data.
 
-## Use Natural Language Processing method to `Clean Data`
+## Clean Data
+
 - Remove the invalid character. Like: "\, &, $, %"
     
     ```json
@@ -73,7 +75,9 @@
         "value" : 1
     }
     ```
-        
+ 
+## Generate keywords
+
 - `Word Tokenizer`
         
     ```json
