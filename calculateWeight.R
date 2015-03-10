@@ -33,14 +33,10 @@ calculateWeight <- function(count){
     calculateTf(count) * calculateIdf(count) * 100L
 }
 
-count_index = 0L
-
 updateLimitData <- function(time_count){
     skip_number = (time_count - 1) * limit_number
     cursor = mongo.find(mongo, ns, limit = limit_number, skip = skip_number)
     while (mongo.cursor.next(cursor)) {
-        
-        count_index <- count_index + 1
         
         value = mongo.cursor.value(cursor)
         id <- mongo.bson.value(value, '_id')
@@ -59,15 +55,13 @@ updateLimitData <- function(time_count){
         
         mongo.update(mongo,ns,criteria,objNew)
     }
-    
-    print(count_index)
-    
 }
 
 ns = "linkedin.final_skills"
 mongo <- mongo.create()
-if (!mongo.is.connected(mongo))
-    error("No connection to MongoDB")
+if (!mongo.is.connected(mongo)){
+    error("No connection to MongoDB")   
+}
 
 all_words_count <- mongo.count(mongo, ns)
 max <- max_count()
