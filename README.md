@@ -22,12 +22,12 @@
 
 ## Steps
 
-### [1. Clean Data](https://github.com/zhou-dong/people-to-people/blob/master/clean-data.md)
+### 1. [Clean Data](https://github.com/zhou-dong/people-to-people/blob/master/clean-data.md)
 
 1. Remove invalid characters
 2. Lower case words
 
-### [2. Generate Keywords](https://github.com/zhou-dong/people-to-people/blob/master/clean-data.md)
+### 2. [Generate Keywords](https://github.com/zhou-dong/people-to-people/blob/master/clean-data.md)
 
 1. Word tokenizer
 2. Token normalization
