@@ -13,7 +13,7 @@
 - Data Size: 2289109
 - DB : MongoDB
 
-### Used Categories of People
+### Used Categories
 
 - Skills
 - Positions
