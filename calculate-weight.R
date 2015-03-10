@@ -26,7 +26,7 @@ calculateTf <- function(count){
 }
 
 calculateIdf <- function(count){
-    log(all_words_count/count)
+    log(max/count)
 }
 
 calculateWeight <- function(count){

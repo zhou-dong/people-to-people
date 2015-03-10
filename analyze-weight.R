@@ -6,7 +6,7 @@ if (!mongo.is.connected(mongo))
     error("No connection to MongoDB")
 
 sort = mongo.bson.buffer.create()
-mongo.bson.buffer.append(sort, "weight", -1L)
+mongo.bson.buffer.append(sort, "weight", 1L)
 sort = mongo.bson.from.buffer(sort)
 
 counts <- vector()

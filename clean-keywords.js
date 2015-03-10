@@ -1,15 +1,21 @@
 var mapFunction = function(){
-    var keywords = this._id.split(" ");
+    
     var reg = new RegExp(/\[|\~|\`|\!|\@|\#|\$|\%|\^|\&|\*|\(|\)|\-|\_|\+|\=|\||\\|\[|\]|\{|\}|\;|\:|\,|\<|\.|\>|\/|\?\]|\“|\”/g) ;
+    var keywords = this._id.replace(reg, " ");
+    
+    var reg0 = new RegExp('"',"g");
+    keywords = keywords.replace(reg0," ") ;
+    
+    var reg1 = new RegExp("'","g");
+    keywords = keywords.replace(reg1," ") ;
+    
+    keywords = keywords.split(" ");
     for(var i=0; i< keywords.length; i++){
-        var keyword = keywords[i].replace(reg, "");
-        var reg0 = new RegExp('"',"g");
-        keyword = keyword.replace(reg0,"") ;
-        var reg1 = new RegExp("'","g");
-        keyword = keyword.replace(reg1,"") ;
+        var keyword = keywords[i] ;
         keyword = keyword.toLowerCase() ;
         emit(keyword, this.value);
     };
+
 } ;
 
 var reduceFunction = function(key, values){
@@ -26,6 +32,6 @@ var finalizeFunction = function (key, reducedValue) {
 
 db.skills.mapReduce( mapFunction, reduceFunction, {
 //    limit: 1000,
-    out: { reduce: "cleaned-skills" },
+    out: { reduce: "cleaned_skills" },
     finalize: finalizeFunction
 });
