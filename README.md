@@ -4,9 +4,7 @@ Use Skills, Positions, Educations, Compony or College Names as keywords to recom
 
 ### Clean Data
   
-From:
   <img alt="keywords-percent" src="img/original-keywords-percent.png"/>
-To:
   <img alt="keywords-percent" src="img/final-keywords-percent.png"/>
 
 ### Generate Keywords
