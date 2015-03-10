@@ -176,12 +176,12 @@
 	```json
 	{
 		"result" : "final_skills",
-		"timeMillis" : 2624,
+		"timeMillis" : 5391,
 		"counts" : {
-			"input" : 54772,
-			"emit" : 22573,
+			"input" : 56439,
+			"emit" : 46896,
 			"reduce" : 0,
-			"output" : 22573
+			"output" : 46896
 		},
 		"ok" : 1
 	}
