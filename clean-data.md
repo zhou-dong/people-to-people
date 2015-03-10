@@ -101,19 +101,19 @@
 
 - Result:
 
-    ```json
-    {
-	    "result" : "cleaned-skills",
-	    "timeMillis" : 18601,
-	    "counts" : {
-		    "input" : 166294,
-		    "emit" : 538772,
-		    "reduce" : 94900,
-		    "output" : 71941
-	    },
-	    "ok" : 1
-    }
-    ```
+	```json
+	{
+		"result" : "cleaned-skills",
+		"timeMillis" : 18346,
+		"counts" : {
+			"input" : 166294,
+			"emit" : 609956,
+			"reduce" : 98779,
+			"output" : 65165
+		},
+		"ok" : 1
+	}
+	```
     
     | Count | Percent | Description |
     | :---: | :---: |:---|
