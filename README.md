@@ -1,6 +1,6 @@
 # People To People Recommendation
 
-## Basic info
+## Basic Info
 
 ### Language:
 
@@ -26,8 +26,8 @@
 
 1. Remove invalid characters
 2. Lower case words
-3. Word Tokenizer
-4. Token Normalization
+3. Word tokenizer
+4. Token normalization
 
 <img alt="keywords-percent" src="img/original-keywords-percent.png"/>
 <img alt="keywords-percent" src="img/final-keywords-percent.png"/>
@@ -40,7 +40,7 @@
 
 ### 3. Caculate weight of the keywords in each category.
 
-1. Method: TF * IDF
+1. Method: Weight = TF * IDF
 2. Example: 
  
 Heighest Weight
