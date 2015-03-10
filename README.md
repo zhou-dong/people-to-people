@@ -8,7 +8,7 @@
 - Javascript: MongoDB Map-reduce
 - Python: Token Normalization
 
-### Prepraed Data
+### [Prepraed Data](https://github.com/zhou-dong/people-to-people/blob/master/clean-data.md#prepared-data)
 
 - Data Size: 2289109
 - DB : MongoDB
@@ -22,12 +22,12 @@
 
 ## Steps
 
-### 1. [Clean Data](https://github.com/zhou-dong/people-to-people/blob/master/clean-data.md)
+### 1. [Clean Data](https://github.com/zhou-dong/people-to-people/blob/master/clean-data.md#clean-data)
 
 1. Remove invalid characters
 2. Lower case words
 
-### 2. [Generate Keywords](https://github.com/zhou-dong/people-to-people/blob/master/clean-data.md)
+### 2. [Generate Keywords](https://github.com/zhou-dong/people-to-people/blob/master/clean-data.md#generate-keywords)
 
 1. Word tokenizer
 2. Token normalization
