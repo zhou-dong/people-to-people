@@ -12,7 +12,7 @@ Use Skills, Positions, Educations, Compony or College Names as keywords to recom
   - <img alt="keywords-percent" src="img/best-stems.png"/>
   - <img alt="keywords-percent" src="img/stem-program.png"/>
   - <img alt="keywords-percent" src="img/stem-person.png"/>
-3. Caculation the weight of the keywords in each category.
+3. Caculate weight of the keywords in each category.
   - TF
   - IDF
 5. For Cold start problem: Same Meaning Words (a way to fixed cold start problem).
