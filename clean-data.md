@@ -186,13 +186,6 @@
 		"ok" : 1
 	}
 	```
-	
-	| Count | Percent | Description |
-    | :---: | :---: |:---|
-    | 1     | 27.6% | 27.6% keywords appear twice |
-    | 2     | 12.6%  | 12.6% of keywords appear three time|
-    | 3     | 8%  | 8% of keywords appear four time |
-    |...  | ... | ... |
     
     <div style="text-align: center">
     	<img alt="keywords-percent" src="img/final-keywords-data.png"/>
