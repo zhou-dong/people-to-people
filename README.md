@@ -22,50 +22,31 @@
 
 ## Steps
 
-### 1. Clean Data
+### [1. Clean Data](https://github.com/zhou-dong/people-to-people/blob/master/clean-data.md)
 
 1. Remove invalid characters
 2. Lower case words
-3. Word tokenizer
-4. Token normalization
 
-<img alt="keywords-percent" src="img/original-keywords-percent.png"/>
-<img alt="keywords-percent" src="img/final-keywords-percent.png"/>
+### [2. Generate Keywords](https://github.com/zhou-dong/people-to-people/blob/master/clean-data.md)
 
-### 2. Generate Keywords
+1. Word tokenizer
+2. Token normalization
 
-<img alt="keywords-percent" src="img/best-stems.png"/>
-<img alt="keywords-percent" src="img/stem-program.png"/>
-<img alt="keywords-percent" src="img/stem-person.png"/>
+### 3. [Caculate keywords weight](https://github.com/zhou-dong/people-to-people/blob/master/calculate-weight.md)
 
-### 3. Caculate weight of the keywords in each category.
+- Method: Weight = TF * IDF
 
-1. Method: Weight = TF * IDF
-2. Example: 
- 
-Heighest Weight
+### 4. Improve: FT-Growth tree
 
-| Keyword | market |microsoft |develop | busy| plan | analys | off | 
-|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| Count | 52188 | 52555 | 50644 | 44146 | 42731 | 38805 | 37878 | 
-| Weight |36.785665 |36.781846 |36.781428 |36.382975 |36.209036 |35.547924 |35.351517 |
-
-Lowest Weight
-
-| Keyword | c8 |conceptualización |cu | f3| fc | 00 | 2h | 
-|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| Count | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 
-| Weight |0.012231 |0.012231 |0.012231 |0.012231 |0.012231 |0.012231 |0.012231 |0.012231 |
-
-### 4. Improve: For Cold start problem: Same Meaning Words (a way to fixed cold start problem).
-    
++ For Cold start problem: Same Meaning Words (a way to fixed cold start problem).
 + If one person has just a few keywords, it is hard to recommendate people to them.
 + We generated same Meaning Words for them.
 + If two words appears together so frequency, we came assume they are same meaning.
 + In different categories, we have different same meaning words.
 
 ### 5. Repeat Step From 1-4 In Four category
-  - We believe different keywords in different categories should have different weight.
+
+ - We believe different keywords in different categories should have different weight.
 
 ### 6. Use category.keyword to represent every people
   - Every people is a vector represent by keywords {...}[0 or weight]
