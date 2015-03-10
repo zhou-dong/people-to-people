@@ -24,7 +24,7 @@
 
 ### 1. Clean Data
 
-1. Remove invalid characters: \ $ % *
+1. Remove invalid characters
 2. Lower case words
 3. Word Tokenizer
 4. Token Normalization
