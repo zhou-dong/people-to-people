@@ -52,4 +52,15 @@ Lowest Weight
 	},
 	"ok" : 1
 }
+{
+	"result" : "industry",
+	"timeMillis" : 204,
+	"counts" : {
+		"input" : 5167,
+		"emit" : 10401,
+		"reduce" : 730,
+		"output" : 494
+	},
+	"ok" : 1
+}
 ```
