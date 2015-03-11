@@ -30,5 +30,15 @@ Lowest Weight
 	},
 	"ok" : 1
 }
-
+{
+	"result" : "edu",
+	"timeMillis" : 1412,
+	"counts" : {
+		"input" : 5167,
+		"emit" : 64226,
+		"reduce" : 9248,
+		"output" : 9041
+	},
+	"ok" : 1
+}
 ```
