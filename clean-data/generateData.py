@@ -119,12 +119,12 @@ total = 0
 def insert_people():
     global total
     print "begin to insert"
-    limit = 10
+    limit = 2000
     try:
         total = ns_employ.count()
         times = cursor_time(total, limit)
         for time in range(0, times):
-            if time==1:
+            if time == 50:
                 break
             batch_insert_peope(time, limit)
     except Exception as e:

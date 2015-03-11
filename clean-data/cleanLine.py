@@ -23,7 +23,7 @@ class CleanLine:
             str_output += " "
         identify = string.maketrans(str_input, str_output)
         if isinstance(line, unicode):
-            line = line.encode('GBK')
+            line = line.encode('UTF-8')
         return line.translate(identify, "")
         #return line.translate(identify, str_input)
 
@@ -58,8 +58,9 @@ class CleanLine:
             keyword = WordNetLemmatizer().lemmatize(keyword)
             return LancasterStemmer().stem(keyword)
         except:
-            print "stem exception: ",  keyword
-            return keyword
+            return None
+            #print "stem exception: ",  keyword
+            #return keyword
 
     def execute(self, line):
         line = self.cleanLine(line)
