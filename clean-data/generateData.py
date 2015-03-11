@@ -108,9 +108,12 @@ def batch_insert_peope(time, limit):
                  "educations": edus, "positions":positions,
                  "industry":industry, "firstname":firstname[0],
                  "lastname":lastname,"summary":summary}
+        if skills == None or edus == None:
+            continue
         peoples.append(people)
     ns_people.insert(peoples)
     print "finish: ", (begin + limit)
+
 
 client = MongoClient()
 db = client['linkedin']
