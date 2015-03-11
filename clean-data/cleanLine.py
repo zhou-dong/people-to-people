@@ -1,6 +1,9 @@
+# -*- coding: utf-8 -*-
+
 import string
 import nltk
 
+from string import maketrans
 from nltk.stem.lancaster import LancasterStemmer
 from nltk.stem import WordNetLemmatizer
 
@@ -16,10 +19,13 @@ class CleanLine:
             return
         str_input = string.punctuation + string.digits
         str_output = "" ;
-        for x in range(0,len(str_input)):
+        for x in range(0, len(str_input)):
             str_output += " "
         identify = string.maketrans(str_input, str_output)
+        if isinstance(line, unicode):
+            line = line.encode('GBK')
         return line.translate(identify, "")
+        #return line.translate(identify, str_input)
 
     def wordTokener(self, line):
         if line == None or len(line) == 0:
