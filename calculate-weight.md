@@ -85,4 +85,15 @@ Lowest Weight
 	},
 	"ok" : 1
 }
+{
+	"result" : "positions_people",
+	"timeMillis" : 9796,
+	"counts" : {
+		"input" : 5167,
+		"emit" : 507660,
+		"reduce" : 75630,
+		"output" : 34133
+	},
+	"ok" : 1
+}
 ```
