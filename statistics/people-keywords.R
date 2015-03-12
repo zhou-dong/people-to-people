@@ -81,23 +81,12 @@ create_people_matrix <- function(){
         rownames(result)[nrow(result)] <- firstname
     }
     err <- mongo.cursor.destroy(cursor)
-   
-    #print(result)
-    #row_name = result["Amarnath Reddy A",]
     r2 = result[2,]
     r3 = result[3,]
     r4 = result[4,]
     r5 = result[5,]
     r6 = result[6,]
-#    r7 = result[7,]
-#    r8 = result[8,]
-   # r9 = result[9,]
-    
     plot(r6, main=rownames(result)[6], ylab = "Weight")
-    
-    #print(result[1,])
-    #print(r1[r1>0])
-    #print(r2[r2>0])
 }
 
 mongo <- mongo.create()
