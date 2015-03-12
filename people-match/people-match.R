@@ -1,6 +1,17 @@
 library(rmongodb)
 Sys.setenv(LANG = "en")
 
+total_count <- function(ns){
+    mongo.count(mongo, ns)
+}
+
+cursor_time <- function(total, size){
+    cursor_time =  total / size 
+    if(total %% size != 0) 
+        cursor_time = cursor_time + 1
+    cursor_time <- as.integer(cursor_time)
+}
+
 init_keywords <- function(ns, prefix, appear_limit){
     result <- vector()
     names <- vector()
@@ -23,29 +34,63 @@ init_keywords <- function(ns, prefix, appear_limit){
     result <- setNames(result, names)
 }
 
-total_count <- function(ns){
-    mongo.count(mongo, ns)
-}
-
-cursor_time <- function(total, size){
-    cursor_time =  total / size 
-    if(total %% size != 0) 
-        cursor_time = cursor_time + 1
-    cursor_time <- as.integer(cursor_time)
-}
-
-new_person <- function(){
+init_names <- function(){
+  #  name <- c(names(industry))
     name <- c(names(industry), names(skill))
     name <- c(name, names(edu))
     name <- c(name, names(position))
+}
+
+new_person <- function(){
+    name <- init_names()  
     person <- vector(mode = "numeric",length=length(name))
     person <- setNames(person, name)
 }
 
-create_person <- function(obj){
-    
+create_person <- function(value){
+    person <- new_person()
+    person <- add_weight_to_person(value, person, "skills", skill)
+    person <- add_weight_to_person(value, person, "industry", industry)
+    person <- add_weight_to_person(value, person, "educations", edu)
+    person <- add_weight_to_person(value, person, "positions", position)
+    person <-person[!is.na(person)]
 }
 
+add_weight_to_person <- function(data, person, cat, dictionary){
+    category <-  mongo.bson.find(data, cat)
+    iter <- mongo.bson.iterator.create(category)
+    while (mongo.bson.iterator.next(iter)){
+        val <- mongo.bson.iterator.value(iter)
+        word_name <- paste(cat, val, sep="-")
+        word_weight <- dictionary[word_name]
+        person[word_name] <- word_weight
+    }
+    person
+}
+
+create_people_matrix <- function(){
+    result <- matrix(ncol = length(init_names()))
+    cursor = mongo.find(mongo, ns = "linkedin.people", limit = 2L, skip = 0L)
+    while (mongo.cursor.next(cursor)) {
+        value = mongo.cursor.value(cursor)
+        firstname <-  mongo.bson.value(value, "firstname")
+        lastname <-  mongo.bson.value(value, "lastname")
+        rowname <- paste(firstname, lastname, sep=" ")
+        person <- create_person(value)
+        result <- rbind(result, person)
+        rownames(result)[nrow(result)] <- rowname
+    }
+    err <- mongo.cursor.destroy(cursor)
+    plot(result)
+    #print(result)
+    #row_name = result["Amarnath Reddy A",]
+    r1 = result[2,]
+    r2 = result[3,]
+    r = r1 * r2
+    print(r[r>0])
+    print(r1[r1>0])
+    print(r2[r2>0])
+}
 
 mongo <- mongo.create()
 if (!mongo.is.connected(mongo)){
@@ -58,12 +103,11 @@ appear_limit = 5
 ns_people = "linkedin.people"
 
 industry <- init_keywords("linkedin.industry", "industry", appear_limit)
-skill <- init_keywords("linkedin.skill", "skill", appear_limit)
-edu <- init_keywords("linkedin.edu", "edu", appear_limit)
-position <- init_keywords("linkedin.positions", "position", appear_limit)
+skill <- init_keywords("linkedin.skill", "skills", appear_limit)
+edu <- init_keywords("linkedin.edu", "educations", appear_limit)
+position <- init_keywords("linkedin.positions", "positions", appear_limit)
 
-person <- new_person()
-print(person)
+create_people_matrix()
 
 mongo.disconnect(mongo)
 mongo.destroy(mongo)
