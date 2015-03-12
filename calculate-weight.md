@@ -63,4 +63,15 @@ Lowest Weight
 	},
 	"ok" : 1
 }
+{
+	"result" : "skill_people",
+	"timeMillis" : 1473,
+	"counts" : {
+		"input" : 5167,
+		"emit" : 76528,
+		"reduce" : 10602,
+		"output" : 5448
+	},
+	"ok" : 1
+}
 ```
