@@ -35,8 +35,8 @@ init_keywords <- function(ns, prefix, appear_limit){
 }
 
 init_names <- function(){
-  #  name <- c(names(industry))
-    name <- c(names(industry), names(skill))
+    name <- c(names(industry))
+    name <- c(name, names(skill))
     name <- c(name, names(edu))
     name <- c(name, names(position))
 }
