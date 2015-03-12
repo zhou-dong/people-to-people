@@ -53,7 +53,7 @@ create_person <- function(value){
     person <- add_weight_to_person(value, person, "industry", industry)
     person <- add_weight_to_person(value, person, "educations", edu)
     person <- add_weight_to_person(value, person, "positions", position)
-    person <-person[!is.na(person)]
+    person <- person[!is.na(person)]
 }
 
 add_weight_to_person <- function(data, person, cat, dictionary){
