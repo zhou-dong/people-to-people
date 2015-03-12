@@ -74,4 +74,15 @@ Lowest Weight
 	},
 	"ok" : 1
 }
+{
+	"result" : "edu_people",
+	"timeMillis" : 1725,
+	"counts" : {
+		"input" : 5167,
+		"emit" : 64226,
+		"reduce" : 10306,
+		"output" : 9041
+	},
+	"ok" : 1
+}
 ```
