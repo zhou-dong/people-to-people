@@ -63,4 +63,48 @@ Lowest Weight
 	},
 	"ok" : 1
 }
+{
+	"result" : "skill_people",
+	"timeMillis" : 1473,
+	"counts" : {
+		"input" : 5167,
+		"emit" : 76528,
+		"reduce" : 10602,
+		"output" : 5448
+	},
+	"ok" : 1
+}
+{
+	"result" : "edu_people",
+	"timeMillis" : 1725,
+	"counts" : {
+		"input" : 5167,
+		"emit" : 64226,
+		"reduce" : 10306,
+		"output" : 9041
+	},
+	"ok" : 1
+}
+{
+	"result" : "positions_people",
+	"timeMillis" : 9796,
+	"counts" : {
+		"input" : 5167,
+		"emit" : 507660,
+		"reduce" : 75630,
+		"output" : 34133
+	},
+	"ok" : 1
+}
+{
+	"result" : "industry_people",
+	"timeMillis" : 275,
+	"counts" : {
+		"input" : 5167,
+		"emit" : 10401,
+		"reduce" : 884,
+		"output" : 494
+	},
+	"ok" : 1
+}
 ```
