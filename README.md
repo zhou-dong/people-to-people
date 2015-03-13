@@ -1,7 +1,5 @@
 # people to people recommendation
 
-## Basic Info
-
 ### Language:
 
 - R : Statistics, Generate Graph
