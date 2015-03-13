@@ -58,6 +58,9 @@ create_person <- function(value){
 
 add_weight_to_person <- function(data, person, cat, dictionary){
     category <-  mongo.bson.find(data, cat)
+    tmp = mongo.bson.value(data,cat)
+    if(!is.character(tmp))
+        return(person)
     iter <- mongo.bson.iterator.create(category)
     while (mongo.bson.iterator.next(iter)){
         val <- mongo.bson.iterator.value(iter)

@@ -58,6 +58,9 @@ create_person <- function(value){
 
 add_weight_to_person <- function(data, person, cat, dictionary){
     category <-  mongo.bson.find(data, cat)
+    tmp = mongo.bson.value(data,cat)
+    if(!is.character(tmp))
+        return(person)
     iter <- mongo.bson.iterator.create(category)
     while (mongo.bson.iterator.next(iter)){
         val <- mongo.bson.iterator.value(iter)
@@ -70,7 +73,7 @@ add_weight_to_person <- function(data, person, cat, dictionary){
 
 create_people_matrix <- function(){
     result <- matrix(ncol = length(init_names()))
-    cursor = mongo.find(mongo, ns = "linkedin.people", limit = 5L, skip = 0L)
+    cursor = mongo.find(mongo, ns = "linkedin.people", limit = 15L, skip = 0L)
     while (mongo.cursor.next(cursor)) {
         value = mongo.cursor.value(cursor)
         firstname <-  mongo.bson.value(value, "firstname")
@@ -81,19 +84,18 @@ create_people_matrix <- function(){
         rownames(result)[nrow(result)] <- firstname
     }
     err <- mongo.cursor.destroy(cursor)
-   
-    #print(result)
     #row_name = result["Amarnath Reddy A",]
     r2 = result[2,]
     r3 = result[3,]
     r4 = result[4,]
     r5 = result[5,]
     r6 = result[6,]
-#    r7 = result[7,]
-#    r8 = result[8,]
-   # r9 = result[9,]
+    r7 = result[7,]
+    r8 = result[8,]
+    r9 = result[9,]
+    r10 = result[10,]
     print(r6[r6>0])
-    plot(r6, main=rownames(result)[6], ylab = "Weight")
+    plot(r10, main=rownames(result)[10], ylab = "Weight")
     
     #print(result[1,])
     #print(r1[r1>0])
