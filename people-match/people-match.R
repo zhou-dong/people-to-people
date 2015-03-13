@@ -1,4 +1,6 @@
 library(rmongodb)
+library(lsa)
+
 Sys.setenv(LANG = "en")
 
 total_count <- function(ns){
@@ -72,34 +74,21 @@ add_weight_to_person <- function(data, person, cat, dictionary){
 }
 
 create_people_matrix <- function(){
-    result <- matrix(ncol = length(init_names()))
-    cursor = mongo.find(mongo, ns = "linkedin.people", limit = 15L, skip = 0L)
+    people <- matrix(nrow = length(init_names()))
+    cursor = mongo.find(mongo, ns = "linkedin.people", limit = 6L, skip = 0L)
     while (mongo.cursor.next(cursor)) {
         value = mongo.cursor.value(cursor)
         firstname <-  mongo.bson.value(value, "firstname")
         #lastname <-  mongo.bson.value(value, "lastname")
         #rowname <- paste(firstname, lastname, sep=" ")
         person <- create_person(value)
-        result <- rbind(result, person)
-        rownames(result)[nrow(result)] <- firstname
+        people <- cbind(people, person)
+        colnames(people)[ncol(people)] <- firstname
     }
     err <- mongo.cursor.destroy(cursor)
-    #row_name = result["Amarnath Reddy A",]
-    r2 = result[2,]
-    r3 = result[3,]
-    r4 = result[4,]
-    r5 = result[5,]
-    r6 = result[6,]
-    r7 = result[7,]
-    r8 = result[8,]
-    r9 = result[9,]
-    r10 = result[10,]
-    print(r6[r6>0])
-    plot(r10, main=rownames(result)[10], ylab = "Weight")
-    
-    #print(result[1,])
-    #print(r1[r1>0])
-    #print(r2[r2>0])
+    people <- people[,-1]
+    #plot(cosine(people), main=colnames(people)[10], ylab = "Weight")
+    print(cosine(people))
 }
 
 mongo <- mongo.create()
