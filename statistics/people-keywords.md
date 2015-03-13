@@ -5,7 +5,7 @@
 1. keywords count: 9672
 2. people count: 5167
 
-#### feature of the data
+#### Feature of the data
 
 - some people have more keywords, some have less
 - keywords sparse
