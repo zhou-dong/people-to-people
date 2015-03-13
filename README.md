@@ -1,4 +1,4 @@
-# people to people recommendation
+# people to people match
 
 ### Language:
 
