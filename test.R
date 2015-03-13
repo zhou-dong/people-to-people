@@ -75,7 +75,7 @@ add_weight_to_person <- function(data, person, cat, dictionary){
 
 create_people_matrix <- function(){
     people <- matrix(nrow = length(init_names()))
-    cursor = mongo.find(mongo, ns = "linkedin.people", limit = 500L, skip = 0L)
+    cursor = mongo.find(mongo, ns = "linkedin.people", limit = 5L, skip = 0L)
     while (mongo.cursor.next(cursor)) {
         value = mongo.cursor.value(cursor)
         name <-  mongo.bson.value(value, "firstname")
@@ -86,12 +86,8 @@ create_people_matrix <- function(){
     }
     err <- mongo.cursor.destroy(cursor)
     people <- people[,-1]
-    
-    result <- cosine(people)
-    
-    print(result)
-    
-    plot(result, main="cosine similarity", ylab="weight", xlab="weight")
+    #plot(cosine(people), main=colnames(people)[10], ylab = "Weight")
+    print(cosine(people))
 }
 
 mongo <- mongo.create()
