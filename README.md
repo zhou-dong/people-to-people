@@ -16,7 +16,7 @@
 - Skills
 - Positions
 - Educations
-- Compony or College Names
+- Industry
 
 ## steps:
 
