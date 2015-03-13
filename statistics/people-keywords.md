@@ -12,6 +12,6 @@
 #### Example:
 
 <img alt="person-weight-01" src="../img/person-weight-01.png"/>
-<img alt="person-weight-02" src="../img/person-weight-02.png"/>
-<img alt="person-weight-03" src="../img/person-weight-03.png"/>
-<img alt="person-weight-04" src="../img/person-weight-04.png"/>
+<img alt="person-weight-02" src="../img/people-weight-02.png"/>
+<img alt="person-weight-03" src="../img/people-weight-03.png"/>
+<img alt="person-weight-04" src="../img/people-weight-04.png"/>
