@@ -56,12 +56,11 @@
  - We believe different keywords in different categories should have different weight.
 -->
 
-### 5. represent person
+### 5. Represent person
  
  - Use category.keyword to represent
  - Each people is a vector by keywords {...}[0 or weight]
- - Example: 
-  + person = {category1.keyword1, category1.keyword2,...,categoryN.keywordM}
+ - person = {category1.keyword1, category1.keyword2,...,categoryN.keywordM}
 
 ### 6. Calculation the similarity of people
 
