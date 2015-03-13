@@ -92,7 +92,7 @@ create_people_matrix <- function(){
 #    r7 = result[7,]
 #    r8 = result[8,]
    # r9 = result[9,]
-    
+    print(r6[r6>0])
     plot(r6, main=rownames(result)[6], ylab = "Weight")
     
     #print(result[1,])
