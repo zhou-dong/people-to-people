@@ -1,4 +1,4 @@
-# People represent by keywords
+# people represent by keywords
 
 #### Use keywords to represent peopel
 
