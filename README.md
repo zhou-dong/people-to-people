@@ -18,7 +18,7 @@
 - Educations
 - Compony or College Names
 
-## steps
+## steps:
 
 ### 1. Clean Data
 
