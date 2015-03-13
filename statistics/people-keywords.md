@@ -1,4 +1,4 @@
-# People keyword
+# People represent by keywords
 
 #### Use keywords to represent peopel
 
@@ -7,7 +7,8 @@
 
 #### feature of the data
 
-- keywordis sparse
+- some people have more keywords, some have less
+- keywords sparse
 
 #### Example:
 
