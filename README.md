@@ -1,6 +1,6 @@
 # people to people match
 
-### Language:
+### Language
 
 - R : Statistics, Generate Graph
 - Javascript: MongoDB Map-reduce
