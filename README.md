@@ -25,7 +25,7 @@
 1. Remove invalid characters
 2. Lower case words
 
-### 2. Divided into 4  category
+### 2. Divided to 4  category
 
 - Skill
 - Position
@@ -41,6 +41,7 @@
 
 - Method: Weight = TF * IDF
 
+<!--
 ### 5. Improve: Same Meaning Words 
 
 + Method: FT-Growth tree
@@ -50,18 +51,21 @@
 + If two words appears together so frequency, we came assume they are same meaning.
 + In different categories, we have different same meaning words.
 
-### 6. Repeat Step From 1-4 In Four category
+### 5. Repeat Step From 1-4 In Four category
 
  - We believe different keywords in different categories should have different weight.
+-->
 
-### 7. Use category.keyword to represent every people
-  - Every people is a vector represent by keywords {...}[0 or weight]
-  - Example: person = {category1.keyword1, category1.keyword2,...category3.keyword4,...categoryN.keywordM}
+### 5. represent person
+ 
+ - Use category.keyword to represent
+ - Each people is a vector by keywords {...}[0 or weight]
+ - Example: 
+  + person = {category1.keyword1, category1.keyword2,...,categoryN.keywordM}
 
-### 8. Calculation the similarity of people to each other
-  - Use ”cosine similarity” to calculate similarity
-  - Each pair of people only compare once. We can use to method to do:
-    + Use graph to figure out what should we do
-    + Use book[] to book the pair have been compared
+### 6. Calculation the similarity of people
 
-### 9. Store all the information into a table.
+ - use ”cosine similarity” to calculate similarity
+ - use graph to figure out what should we do
+
+### 7. Store all the information into a table.
