@@ -1,4 +1,4 @@
-# people to people match
+# people to people
 
 ### Language
 
