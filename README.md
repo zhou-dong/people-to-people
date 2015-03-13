@@ -1,4 +1,4 @@
-# People To People Recommendation
+# people to people recommendation
 
 ## Basic Info
 
