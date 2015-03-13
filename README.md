@@ -62,9 +62,9 @@
  - Each people is a vector by keywords {...}[0 or weight]
  - person = {category1.keyword1, category1.keyword2,...,categoryN.keywordM}
 
-### 6. Calculation the similarity of people
+### 6. Calculate the similarity
 
  - use ”cosine similarity” to calculate similarity
  - use graph to figure out what should we do
 
-### 7. Store all the information into a table.
+### 7. Store the information
