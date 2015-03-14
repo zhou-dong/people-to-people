@@ -1,13 +1,13 @@
 
 <img alt="cosine-similarity" src="/img/cosine-similarity.png"/>
 
-<img alt="people-match01" src="/img/people-match-01.png"/>
-
-Names:
+Example:
 
 | FIRST | SECOND | THIRD | FORTH | FIFTH |
 | :---: | :---: | :---: | :---: | :---: |
 | Ameya| Amarnath Reddy | Amit Kumar | Reji Kumar | Reka |
+
+<img alt="people-match01" src="/img/people-match-01.png"/>
 
 Same with: "Amarnath Reddy"
 
