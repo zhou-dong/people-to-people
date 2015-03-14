@@ -17,10 +17,12 @@ Names:
 | :---: | :---: | :---: | :---: | :---: |
 |Amarnath Reddy| Ameya | Amit Kumar | Reji Kumar | Reka |
 
+Same with: Ameya
 
-[1] "Ameya"
-educations-univers 
-         0.5684708 
+| keyword | educations-univers|
+| :---: | :---:|
+| weight | 0.5684708 |
+
 [1] "Amit Kumar"
   educations-univers educations-technolog      educations-tech 
           0.56847081           0.23987819           0.05557003 
