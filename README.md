@@ -67,4 +67,4 @@
  - use ”cosine similarity” to calculate similarity
  - use graph to figure out what should we do
 
-### 7. Store the information
+### 7. Show Result
