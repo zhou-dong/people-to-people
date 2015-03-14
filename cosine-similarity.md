@@ -1,7 +1,7 @@
 
 <img alt="cosine-similarity" src="/img/cosine-similarity.png"/>
 
-<img style="width:100%" alt="people-match01" src="/img/people-match-01.png"/>
+<img alt="people-match01" src="/img/people-match-01.png"/>
 
 <img alt="people-match02" src="/img/people-match-02.png"/>
 
@@ -15,9 +15,9 @@ Names:
 
 | FIRST | SECOND | THIRD | FORTH | FIFTH |
 | :---: | :---: | :---: | :---: | :---: |
-|Amarnath Reddy| Ameya | Amit Kumar | Reji Kumar | Reka |
+| Ameya| Amarnath Reddy | Amit Kumar | Reji Kumar | Reka |
 
-Same with: "Ameya"
+Same with: "Amarnath Reddy"
 
 | keyword | educations-univers|
 | :---: | :---:|
