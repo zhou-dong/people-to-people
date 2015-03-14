@@ -3,14 +3,6 @@
 
 <img alt="people-match01" src="/img/people-match-01.png"/>
 
-<img alt="people-match02" src="/img/people-match-02.png"/>
-
-<img alt="people-match03" src="/img/people-match-03.png"/>
-
-<img alt="people-match02" src="/img/people-match-04.png"/>
-
-<img alt="people-match03" src="/img/people-match-05.png"/>
-
 Names:
 
 | FIRST | SECOND | THIRD | FORTH | FIFTH |
@@ -42,3 +34,11 @@ Same with: "Reka"
 | keyword | positions-pvt | positions-ltd |
 | :---: | :---:| :---: |
 | weight | 0.02073391 | 0.05317653 |
+
+<img alt="people-match02" src="/img/people-match-02.png"/>
+
+<img alt="people-match03" src="/img/people-match-03.png"/>
+
+<img alt="people-match02" src="/img/people-match-04.png"/>
+
+<img alt="people-match03" src="/img/people-match-05.png"/>
