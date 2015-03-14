@@ -1,5 +1,6 @@
 library(rmongodb)
 library(lsa)
+library(SnowballC)
 
 Sys.setenv(LANG = "en")
 
@@ -87,12 +88,37 @@ create_people_matrix <- function(){
     err <- mongo.cursor.destroy(cursor)
     people <- people[,-1]
     result <- cosine(people)
-    people_index = 5
+    people_index = 1
     x_names <- colnames(result)
     print(x_names)
     plot(result[,people_index], main=rownames(result)[people_index], xlab="people", ylab="weight", col="red", xlim = c(1,6))
     text(result[,people_index], labels=x_names, cex=1, pos=4, col="blue")
     #plot(result, main="cosine similarity", ylab="weight", xlab="weight")
+    find_commons(x_names, people[,1], people[,2], people[,3], people[,4], people[,5])
+    #p1 <- people[,1]
+    #p1 <- p1[p1>0]
+    #print(p1)
+    #p2 <- people[,2]
+    #p2 <- p2[p2>0]
+    #print(p2)
+    #plot(p1, xlab="keywords", ylab="weight", main=x_names[1], col="red")
+    #text(p1, labels=names(p1), cex=1, pos=4, col="blue")
+}
+
+find_commons <- function(names, p1, p2, p3, p4, p5){
+    print(names[2])
+    print(find_common(p1, p2))
+    print(names[3])
+    print(find_common(p1, p3))
+    print(names[4])
+    print(find_common(p1, p4))
+    print(names[5])
+    print(find_common(p1, p5))
+}
+
+find_common <- function(p1, p2){
+    result <- p1[p1==p2]
+    result <- result[result>0]
 }
 
 mongo <- mongo.create()
