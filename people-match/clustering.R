@@ -1,8 +1,7 @@
-library(rmongodb)
-library(lsa)
-library(SnowballC)
-
 Sys.setenv(LANG = "en")
+
+library(rmongodb)
+library(class)
 
 total_count <- function(ns){
     mongo.count(mongo, ns)
@@ -20,6 +19,7 @@ init_keywords <- function(ns, prefix, appear_limit){
     names <- vector()
     total = total_count(ns)
     time <- cursor_time(total, fetch_size)
+    
     for(x in 1: time){
         begin = (x - 1) * fetch_size
         cursor = mongo.find(mongo, ns, limit = fetch_size, skip = begin)
@@ -74,51 +74,31 @@ add_weight_to_person <- function(data, person, cat, dictionary){
     person
 }
 
-create_people_matrix <- function(){
-    people <- matrix(nrow = length(init_names()))
+clustering <- function(){
+    result <- matrix(ncol = length(init_names()))
     cursor = mongo.find(mongo, ns = "linkedin.people", limit = 50L, skip = 0L)
     while (mongo.cursor.next(cursor)) {
         value = mongo.cursor.value(cursor)
         name <-  mongo.bson.value(value, "firstname")
         id <- mongo.oid.to.string(mongo.bson.value(value, "_id"))
         person <- create_person(value)
-        people <- cbind(people, person)
-        colnames(people)[ncol(people)] <- name
+        result <- rbind(result, person)
+        colnames(result)[ncol(result)] <- name
     }
     err <- mongo.cursor.destroy(cursor)
-    people <- people[,-1]
-    result <- cosine(people)
-    people_index = 1
-    x_names <- colnames(result)
-    print(x_names)
-    #plot(result[,people_index], main=rownames(result)[people_index], xlab="people", ylab="weight", col="red", xlim = c(1,6))
-    #text(result[,people_index], labels=x_names, cex=1, pos=4, col="blue")
-    plot(result, main="cosine similarity", ylab="weight", xlab="weight")
-    #find_commons(x_names, people[,1], people[,2], people[,3], people[,4], people[,5])
-    #p1 <- people[,1]
-    #p1 <- p1[p1>0]
-    #print(p1)
-    #p2 <- people[,2]
-    #p2 <- p2[p2>0]
-    #print(p2)
-    #plot(p1, xlab="keywords", ylab="weight", main=x_names[1], col="red")
-    #text(p1, labels=names(p1), cex=1, pos=4, col="blue")
-}
-
-find_commons <- function(names, p1, p2, p3, p4, p5){
-    print(names[2])
-    print(find_common(p1, p2))
-    print(names[3])
-    print(find_common(p1, p3))
-    print(names[4])
-    print(find_common(p1, p4))
-    print(names[5])
-    print(find_common(p1, p5))
-}
-
-find_common <- function(p1, p2){
-    result <- p1[p1==p2]
-    result <- result[result>0]
+    #result <- result[,-1]
+    
+    #print(dim(result))
+    #print(length(result[,1])) 
+    #test <- cbind(result[,1], result[,2])
+    #print(dim(test))
+ 
+   # summary(knn(result, result, result[,1], k = 1))
+    
+   print(result)
+    
+    plot(result, main="people", ylab="weight", xlab="keywords")
+   
 }
 
 mongo <- mongo.create()
@@ -126,17 +106,12 @@ if (!mongo.is.connected(mongo)){
     error("No connection to MongoDB")   
 }
 
-fetch_size = 1000
-appear_limit = 5
-
-ns_people = "linkedin.people"
-
 industry <- init_keywords("linkedin.industry", "industry", appear_limit)
 skill <- init_keywords("linkedin.skill", "skills", appear_limit)
 edu <- init_keywords("linkedin.edu", "educations", appear_limit)
 position <- init_keywords("linkedin.positions", "positions", appear_limit)
 
-create_people_matrix()
+clustering()
 
 mongo.disconnect(mongo)
 mongo.destroy(mongo)
