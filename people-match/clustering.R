@@ -2,6 +2,11 @@ Sys.setenv(LANG = "en")
 
 library(rmongodb)
 library(class)
+library(igraph)
+library(ElemStatLearn)
+
+
+appear_limit = 10
 
 total_count <- function(ns){
     mongo.count(mongo, ns)
@@ -76,7 +81,7 @@ add_weight_to_person <- function(data, person, cat, dictionary){
 
 clustering <- function(){
     result <- matrix(ncol = length(init_names()))
-    cursor = mongo.find(mongo, ns = "linkedin.people", limit = 50L, skip = 0L)
+    cursor = mongo.find(mongo, ns = "linkedin.people", limit = 15L, skip = 0L)
     while (mongo.cursor.next(cursor)) {
         value = mongo.cursor.value(cursor)
         name <-  mongo.bson.value(value, "firstname")
@@ -86,18 +91,34 @@ clustering <- function(){
         colnames(result)[ncol(result)] <- name
     }
     err <- mongo.cursor.destroy(cursor)
-    #result <- result[,-1]
+    result <- result[-1,]
     
     #print(dim(result))
     #print(length(result[,1])) 
     #test <- cbind(result[,1], result[,2])
     #print(dim(test))
  
-   # summary(knn(result, result, result[,1], k = 1))
+    #print(result)
     
-   print(result)
+    mod15 <- knn(result, result, result[,1], k = 15, prob=TRUE)
+    summary(mod15)
     
-    plot(result, main="people", ylab="weight", xlab="keywords")
+    plot(result)
+    plot(result, col=ifelse(result[,1]==1,"red", "green"),xlab="x1", ylab="x2")
+    
+    str(mod15)
+    prob <- attr(mod15, "prob")
+    prob <- ifelse( mod15=="1", prob, 1-prob)
+    
+    prob15 <- matrix(prob, length(result[1,]), length(result[1,]))
+    
+    
+    
+    contour(seq(result[2,]), seq(result[3,]), prob15, levels=0.5, labels="", xlab="x1", ylab="x2", main="15-nearest neighbour")
+    points(result, col=ifelse(g==1, "red", "green"))
+    
+    
+    #plot(result, main="people", ylab="weight", xlab="keywords")
    
 }
 

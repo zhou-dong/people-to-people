@@ -4,22 +4,12 @@ library(SnowballC)
 
 Sys.setenv(LANG = "en")
 
-total_count <- function(ns){
-    mongo.count(mongo, ns)
-}
-
-cursor_time <- function(total, size){
-    cursor_time =  total / size 
-    if(total %% size != 0) 
-        cursor_time = cursor_time + 1
-    cursor_time <- as.integer(cursor_time)
-}
-
 init_keywords <- function(ns, prefix, appear_limit){
     result <- vector()
     names <- vector()
-    total = total_count(ns)
-    time <- cursor_time(total, fetch_size)
+    
+    time <- getCursorTime(MongoUtil(collection=ns), mongo, fetch_size)
+    
     for(x in 1: time){
         begin = (x - 1) * fetch_size
         cursor = mongo.find(mongo, ns, limit = fetch_size, skip = begin)
@@ -93,7 +83,7 @@ create_people_matrix <- function(){
     print(x_names)
     #plot(result[,people_index], main=rownames(result)[people_index], xlab="people", ylab="weight", col="red", xlim = c(1,6))
     #text(result[,people_index], labels=x_names, cex=1, pos=4, col="blue")
-    plot(result, main="cosine similarity", ylab="weight", xlab="weight")
+    plot(result, main="cosine similarity", ylab="weight3", xlab="weight")
     #find_commons(x_names, people[,1], people[,2], people[,3], people[,4], people[,5])
     #p1 <- people[,1]
     #p1 <- p1[p1>0]
@@ -127,7 +117,7 @@ if (!mongo.is.connected(mongo)){
 }
 
 fetch_size = 1000
-appear_limit = 5
+appear_limit = 50
 
 ns_people = "linkedin.people"
 

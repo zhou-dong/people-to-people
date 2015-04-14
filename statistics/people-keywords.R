@@ -1,25 +1,14 @@
 library(rmongodb)
 Sys.setenv(LANG = "en")
 
-total_count <- function(ns){
-    mongo.count(mongo, ns)
-}
-
-cursor_time <- function(total, size){
-    cursor_time =  total / size 
-    if(total %% size != 0) 
-        cursor_time = cursor_time + 1
-    cursor_time <- as.integer(cursor_time)
-}
-
 init_keywords <- function(ns, prefix, appear_limit){
     result <- vector()
     names <- vector()
-    total = total_count(ns)
-    time <- cursor_time(total, fetch_size)
+    time <- getCursorTime(MongoUtil(collection=ns), mongo, fetch_size)
     for(x in 1: time){
         begin = (x - 1) * fetch_size
-        cursor = mongo.find(mongo, ns, limit = fetch_size, skip = begin)
+        namespace = paste("linkedin", ns, sep=".")
+        cursor = mongo.find(mongo, namespace, limit = fetch_size, skip = begin)
         while (mongo.cursor.next(cursor)) {
             value = mongo.cursor.value(cursor)
             count <- mongo.bson.value(value,"value")
@@ -88,9 +77,11 @@ create_people_matrix <- function(){
     #r3 = result[3,]
     #r4 = result[4,]
     #r5 = result[5,]
-    #r6 = result[6,]
-    #plot(r6, main=rownames(result)[6], ylab = "Weight")
-    plot(result, main="people")
+    r6 = result[6,]
+    plot(r6, main=rownames(result)[6], ylab = "Weight")
+    #plot(result, main="people")
+    
+    print(dim(result))
 }
 
 mongo <- mongo.create()
@@ -99,14 +90,14 @@ if (!mongo.is.connected(mongo)){
 }
 
 fetch_size = 1000
-appear_limit = 5
+appear_limit = 50
 
 ns_people = "linkedin.people"
 
-industry <- init_keywords("linkedin.industry", "industry", appear_limit)
-skill <- init_keywords("linkedin.skill", "skills", appear_limit)
-edu <- init_keywords("linkedin.edu", "educations", appear_limit)
-position <- init_keywords("linkedin.positions", "positions", appear_limit)
+industry <- init_keywords("industry", "industry", appear_limit)
+skill <- init_keywords("skill", "skills", appear_limit)
+edu <- init_keywords("edu", "educations", appear_limit)
+position <- init_keywords("positions", "positions", appear_limit)
 
 create_people_matrix()
 
