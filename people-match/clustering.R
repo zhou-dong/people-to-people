@@ -5,29 +5,17 @@ library(class)
 library(igraph)
 library(ElemStatLearn)
 
-
 appear_limit = 10
-
-total_count <- function(ns){
-    mongo.count(mongo, ns)
-}
-
-cursor_time <- function(total, size){
-    cursor_time =  total / size 
-    if(total %% size != 0) 
-        cursor_time = cursor_time + 1
-    cursor_time <- as.integer(cursor_time)
-}
 
 init_keywords <- function(ns, prefix, appear_limit){
     result <- vector()
     names <- vector()
-    total = total_count(ns)
-    time <- cursor_time(total, fetch_size)
-    
+    time <- getCursorTime(MongoUtil(collection=ns), mongo, fetch_size)
+    print(time)
     for(x in 1: time){
         begin = (x - 1) * fetch_size
-        cursor = mongo.find(mongo, ns, limit = fetch_size, skip = begin)
+        namespace = paste("linkedin", ns, sep=".")
+        cursor = mongo.find(mongo, namespace, limit = fetch_size, skip = begin)
         while (mongo.cursor.next(cursor)) {
             value = mongo.cursor.value(cursor)
             count <- mongo.bson.value(value,"value")
@@ -123,10 +111,10 @@ if (!mongo.is.connected(mongo)){
     error("No connection to MongoDB")   
 }
 
-industry <- init_keywords("linkedin.industry", "industry", appear_limit)
-skill <- init_keywords("linkedin.skill", "skills", appear_limit)
-edu <- init_keywords("linkedin.edu", "educations", appear_limit)
-position <- init_keywords("linkedin.positions", "positions", appear_limit)
+industry <- init_keywords("industry", "industry", appear_limit)
+skill <- init_keywords("skill", "skills", appear_limit)
+edu <- init_keywords("edu", "educations", appear_limit)
+position <- init_keywords("positions", "positions", appear_limit)
 
 clustering()
 
