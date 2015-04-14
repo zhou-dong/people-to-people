@@ -35,7 +35,7 @@ setGeneric(name = "getCursorTime",
 setMethod(f = "getCursorTime",
           signature = "MongoUtil",
           definition = function(theObject, mongo, size){
-              total <- getTotalCount(util, mongo)
+              total <- getTotalCount(theObject, mongo)
               result =  total / size 
               if(total %% size != 0) 
                   result = result + 1
@@ -50,9 +50,11 @@ testUtil <- function (){
     mongo <- mongo.create()
     
     total <- getTotalCount(util, mongo)
-    cursorTime <- getCursorTime(util, mongo, 1)
     print(total)
+
+    cursorTime <- getCursorTime(util, mongo, 1)
     print(cursorTime)
+    
     mongo.disconnect(mongo)
     mongo.destroy(mongo)
 }

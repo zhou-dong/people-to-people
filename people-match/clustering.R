@@ -112,14 +112,10 @@ clustering <- function(){
     
     prob15 <- matrix(prob, length(result[1,]), length(result[1,]))
     
-    
-    
     contour(seq(result[2,]), seq(result[3,]), prob15, levels=0.5, labels="", xlab="x1", ylab="x2", main="15-nearest neighbour")
     points(result, col=ifelse(g==1, "red", "green"))
     
-    
     #plot(result, main="people", ylab="weight", xlab="keywords")
-   
 }
 
 mongo <- mongo.create()
