@@ -5,23 +5,22 @@ library(class)
 library(igraph)
 library(ElemStatLearn)
 
-appear_limit = 10
+fetch_size = 1000
+threshold = 0.06
 
-init_keywords <- function(ns, prefix, appear_limit){
+init_keywords <- function(ns, prefix, threshold){
     result <- vector()
     names <- vector()
     time <- getCursorTime(MongoUtil(collection=ns), mongo, fetch_size)
-    print(time)
     for(x in 1: time){
         begin = (x - 1) * fetch_size
         namespace = paste("linkedin", ns, sep=".")
         cursor = mongo.find(mongo, namespace, limit = fetch_size, skip = begin)
         while (mongo.cursor.next(cursor)) {
             value = mongo.cursor.value(cursor)
-            count <- mongo.bson.value(value,"value")
-            if(as.double(count) < appear_limit)
-                next
             weight <- mongo.bson.value(value,"weight")
+            if(as.double(weight) < threshold)
+                next
             name <- mongo.bson.value(value,"_id")
             names <- c(names, paste(prefix, name, sep="-"))
             result <- c(result, as.double(weight))
@@ -69,7 +68,7 @@ add_weight_to_person <- function(data, person, cat, dictionary){
 
 clustering <- function(){
     result <- matrix(ncol = length(init_names()))
-    cursor = mongo.find(mongo, ns = "linkedin.people", limit = 15L, skip = 0L)
+    cursor = mongo.find(mongo, ns = "linkedin.people", limit = 318L, skip = 0L)
     while (mongo.cursor.next(cursor)) {
         value = mongo.cursor.value(cursor)
         name <-  mongo.bson.value(value, "firstname")
@@ -81,14 +80,10 @@ clustering <- function(){
     err <- mongo.cursor.destroy(cursor)
     result <- result[-1,]
     
-    #print(dim(result))
-    #print(length(result[,1])) 
-    #test <- cbind(result[,1], result[,2])
-    #print(dim(test))
- 
-    #print(result)
+    test <- cbind(result[,1], result[,2])
+    train <- cbind(result[,4], result[,5])
     
-    mod15 <- knn(result, result, result[,1], k = 15, prob=TRUE)
+    mod15 <- knn(result, result, result[2,], k = 15, prob=TRUE)
     summary(mod15)
     
     plot(result)
@@ -98,12 +93,15 @@ clustering <- function(){
     prob <- attr(mod15, "prob")
     prob <- ifelse( mod15=="1", prob, 1-prob)
     
-    prob15 <- matrix(prob, length(result[1,]), length(result[1,]))
+    matrixLength = length(result[1,])
+
+    prob15 <- matrix(prob, matrixLength, matrixLength)
     
-    contour(seq(result[2,]), seq(result[3,]), prob15, levels=0.5, labels="", xlab="x1", ylab="x2", main="15-nearest neighbour")
+    contour(seq(result[2,]), seq(result[11,]), prob15, levels=0.5, labels="", xlab="x1", ylab="x2", main="15-nearest neighbour")
     points(result, col=ifelse(g==1, "red", "green"))
     
-    #plot(result, main="people", ylab="weight", xlab="keywords")
+    
+    print(result[2,])
 }
 
 mongo <- mongo.create()
@@ -111,10 +109,10 @@ if (!mongo.is.connected(mongo)){
     error("No connection to MongoDB")   
 }
 
-industry <- init_keywords("industry", "industry", appear_limit)
-skill <- init_keywords("skill", "skills", appear_limit)
-edu <- init_keywords("edu", "educations", appear_limit)
-position <- init_keywords("positions", "positions", appear_limit)
+industry <- init_keywords("industry", "industry", threshold)
+skill <- init_keywords("skill", "skills", threshold)
+edu <- init_keywords("edu", "educations", threshold)
+position <- init_keywords("positions", "positions", threshold)
 
 clustering()
 

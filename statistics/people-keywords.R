@@ -1,7 +1,7 @@
 library(rmongodb)
 Sys.setenv(LANG = "en")
 
-init_keywords <- function(ns, prefix, appear_limit){
+init_keywords <- function(ns, prefix, threshold){
     result <- vector()
     names <- vector()
     time <- getCursorTime(MongoUtil(collection=ns), mongo, fetch_size)
@@ -11,10 +11,9 @@ init_keywords <- function(ns, prefix, appear_limit){
         cursor = mongo.find(mongo, namespace, limit = fetch_size, skip = begin)
         while (mongo.cursor.next(cursor)) {
             value = mongo.cursor.value(cursor)
-            count <- mongo.bson.value(value,"value")
-            if(as.double(count) < appear_limit)
-                next
             weight <- mongo.bson.value(value,"weight")
+            if(as.double(weight) < threshold)
+                next
             name <- mongo.bson.value(value,"_id")
             names <- c(names, paste(prefix, name, sep="-"))
             result <- c(result, as.double(weight))
@@ -90,16 +89,18 @@ if (!mongo.is.connected(mongo)){
 }
 
 fetch_size = 1000
-appear_limit = 50
+threshold = 0.06
 
 ns_people = "linkedin.people"
 
-industry <- init_keywords("industry", "industry", appear_limit)
-skill <- init_keywords("skill", "skills", appear_limit)
-edu <- init_keywords("edu", "educations", appear_limit)
-position <- init_keywords("positions", "positions", appear_limit)
+industry <- init_keywords("industry", "industry", threshold)
+skill <- init_keywords("skill", "skills", threshold)
+edu <- init_keywords("edu", "educations", threshold)
+position <- init_keywords("positions", "positions", threshold)
 
 create_people_matrix()
+
+print(length(names))
 
 mongo.disconnect(mongo)
 mongo.destroy(mongo)

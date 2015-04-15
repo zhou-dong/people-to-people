@@ -7,9 +7,7 @@ Sys.setenv(LANG = "en")
 init_keywords <- function(ns, prefix, appear_limit){
     result <- vector()
     names <- vector()
-    
     time <- getCursorTime(MongoUtil(collection=ns), mongo, fetch_size)
-    
     for(x in 1: time){
         begin = (x - 1) * fetch_size
         cursor = mongo.find(mongo, ns, limit = fetch_size, skip = begin)
