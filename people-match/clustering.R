@@ -85,7 +85,7 @@ clustering <- function(){
 
     results <- kmeans(result.features, 3)
     print(results)
-    plot(result[,4], result[,2], col=results$cluster)
+    plot(result[,4], result[,2], col=results$cluster, xlab = "x weight", ylab = "y weight", main="Clustering")
 }
 
 mongo <- mongo.create()
