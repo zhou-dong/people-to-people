@@ -67,41 +67,25 @@ add_weight_to_person <- function(data, person, cat, dictionary){
 }
 
 clustering <- function(){
-    result <- matrix(ncol = length(init_names()))
-    cursor = mongo.find(mongo, ns = "linkedin.people", limit = 318L, skip = 0L)
+    result <- matrix(nrow = length(init_names()))
+    cursor = mongo.find(mongo, ns = "linkedin.people", limit = 6L, skip = 0L)
     while (mongo.cursor.next(cursor)) {
         value = mongo.cursor.value(cursor)
         name <-  mongo.bson.value(value, "firstname")
         id <- mongo.oid.to.string(mongo.bson.value(value, "_id"))
         person <- create_person(value)
-        result <- rbind(result, person)
+        result <- cbind(result, person)
         colnames(result)[ncol(result)] <- name
     }
     err <- mongo.cursor.destroy(cursor)
-    result <- result[-1,]
+    result <- result[,-1]
     
-    test <- cbind(result[,1], result[,2])
-    train <- cbind(result[,4], result[,5])
-    
-    mod15 <- knn(result, result, result[2,], k = 15, prob=TRUE)
-    summary(mod15)
-    
-    plot(result)
-    plot(result, col=ifelse(result[,1]==1,"red", "green"),xlab="x1", ylab="x2")
-    
-    str(mod15)
-    prob <- attr(mod15, "prob")
-    prob <- ifelse( mod15=="1", prob, 1-prob)
-    
-    matrixLength = length(result[1,])
+    result.features = result
+    View(result.features)
 
-    prob15 <- matrix(prob, matrixLength, matrixLength)
-    
-    contour(seq(result[2,]), seq(result[11,]), prob15, levels=0.5, labels="", xlab="x1", ylab="x2", main="15-nearest neighbour")
-    points(result, col=ifelse(g==1, "red", "green"))
-    
-    
-    print(result[2,])
+    results <- kmeans(result.features, 3)
+    print(results)
+    plot(result[,4], result[,2], col=results$cluster)
 }
 
 mongo <- mongo.create()
