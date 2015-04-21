@@ -11,5 +11,3 @@
 <img alt="k means" src="/img/clustering7.png"/>
 
 <img alt="k means" src="/img/clustering8.png"/>
-
-<img alt="people-match01" src="/img/view_result.png"/>
