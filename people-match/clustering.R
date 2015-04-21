@@ -90,9 +90,9 @@ clustering <- function(){
     #cosine_result[!is.finite(cosine_result),]
     #cosine_result[!is.finite(cosine_result)] <- 0.00000003
     cosine_result[is.na(cosine_result)] <- 0.00000001
-    View(cosine_result)
+    #View(cosine_result)
     results <- kmeans(data.matrix(cosine_result), 3)
-    plot(cosine_result[,1], cosine_result[,2], col=results$cluster, xlab = "x weight1", ylab = "y weight2", main="Clustering")
+    plot(cosine_result[,16], cosine_result[,15], col=results$cluster, xlab = "x weight", ylab = "y weight", main="Clustering")
     
 }
 
