@@ -1,4 +1,4 @@
-# Use K-Means to clustering
+# Use K-Means to Clustering
 
 <img alt="k means" src="/img/relations5.png"/>
 
