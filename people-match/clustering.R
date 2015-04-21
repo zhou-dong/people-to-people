@@ -85,7 +85,7 @@ clustering <- function(){
     cosine_result <- cosine(result)
     cosine_result[is.na(cosine_result)] <- 0.00000001
     #kmeansClustering(cosine_result)
-    recommendation(cosine_result[2,])
+    recommendation(cosine_result[3,])
 }
 
 recommendation <- function(input){
