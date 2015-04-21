@@ -69,7 +69,7 @@ add_weight_to_person <- function(data, person, cat, dictionary){
 
 clustering <- function(){
     result <- matrix(nrow = length(init_names()))
-    cursor = mongo.find(mongo, ns = "linkedin.people", limit = 100L, skip = 0L)
+    cursor = mongo.find(mongo, ns = "linkedin.people", limit = 20L, skip = 0L)
     while (mongo.cursor.next(cursor)) {
         value = mongo.cursor.value(cursor)
         name <-  mongo.bson.value(value, "firstname")
@@ -80,20 +80,53 @@ clustering <- function(){
     }
     err <- mongo.cursor.destroy(cursor)
     result <- result[,-1]
-    
     result.features = result
     #View(result.features)
-
-    #print(results)
-    #plot(result[,4], result[,2], col=results$cluster, xlab = "x weight", ylab = "y weight", main="Clustering")
     cosine_result <- cosine(result)
-    #cosine_result[!is.finite(cosine_result),]
-    #cosine_result[!is.finite(cosine_result)] <- 0.00000003
     cosine_result[is.na(cosine_result)] <- 0.00000001
-    #View(cosine_result)
-    results <- kmeans(data.matrix(cosine_result), 3)
-    plot(cosine_result[,16], cosine_result[,15], col=results$cluster, xlab = "x weight", ylab = "y weight", main="Clustering")
-    
+    #kmeansClustering(cosine_result)
+    recommendation(cosine_result[2,])
+}
+
+recommendation <- function(input){
+    names <- vector()
+    vertexs <- vector()
+    weights <- vector()
+    realLength <- 0 
+    for (x in 1: length(input)){
+        weight = input[x]
+        name <- names(input[x])
+        if(weight==1){
+            pivotName = name
+            next
+        }
+        if(weight == 0 || weight == 0.00000001)
+            next
+        realLength = realLength + 1
+        names <- c(names, name)
+        weights <- c(weights, as.double(weight)*10)
+
+    }
+    for (x in 1: realLength){
+        vertexs <- c(vertexs, x)
+        vertexs <- c(vertexs, realLength+1) 
+    }
+    names <- c(names, pivotName)
+    print(vertexs)
+    print(names)
+    print(weights)
+    g <- graph(vertexs)
+    V(g)$color <- rainbow(length(names))
+    V(g)$name <- unlist(names)
+    E(g)$weight <- weights
+    summary(g)
+    plot(g, edge.width=E(g)$weight, main=pivotName)
+}
+
+kmeansClustering <- function(cos_result){
+    View(cos_result)
+    results <- kmeans(data.matrix(cos_result), 3)
+    plot(cos_result[,16], cos_result[,15], col=results$cluster, xlab = "x-weight", ylab = "y-weight", main="Clustering")
 }
 
 mongo <- mongo.create()
