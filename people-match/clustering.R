@@ -69,7 +69,7 @@ add_weight_to_person <- function(data, person, cat, dictionary){
 
 clustering <- function(){
     result <- matrix(nrow = length(init_names()))
-    cursor = mongo.find(mongo, ns = "linkedin.people", limit = 20L, skip = 0L)
+    cursor = mongo.find(mongo, ns = "linkedin.people", limit = 5L, skip = 0L)
     while (mongo.cursor.next(cursor)) {
         value = mongo.cursor.value(cursor)
         name <-  mongo.bson.value(value, "firstname")
@@ -84,7 +84,7 @@ clustering <- function(){
     #View(result.features)
     cosine_result <- cosine(result)
     cosine_result[is.na(cosine_result)] <- 0.00000001
-    #View(cosine_result)
+    View(cosine_result)
     #kmeansClustering(cosine_result)
     #recommendation(cosine_result[3,])
     relations(cosine_result)
@@ -99,7 +99,7 @@ relations <- function(rel_input){
             weight = rel_input[x,y]
             if(weight==1)
                 next
-            weights <- c(weights, as.double(weight)*3)
+            weights <- c(weights, as.double(weight)*5)
             vertexs <- c(vertexs, y)
             vertexs <- c(vertexs, x) 
         }
