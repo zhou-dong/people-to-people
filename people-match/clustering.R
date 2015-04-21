@@ -99,7 +99,7 @@ relations <- function(rel_input){
             weight = rel_input[x,y]
             if(weight==1)
                 next
-            weights <- c(weights, as.double(weight)*1)
+            weights <- c(weights, as.double(weight)*3)
             vertexs <- c(vertexs, y)
             vertexs <- c(vertexs, x) 
         }
