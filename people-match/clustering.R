@@ -4,6 +4,7 @@ library(rmongodb)
 library(class)
 library(igraph)
 library(ElemStatLearn)
+library(lsa)
 
 fetch_size = 1000
 threshold = 0.06
@@ -68,7 +69,7 @@ add_weight_to_person <- function(data, person, cat, dictionary){
 
 clustering <- function(){
     result <- matrix(nrow = length(init_names()))
-    cursor = mongo.find(mongo, ns = "linkedin.people", limit = 6L, skip = 0L)
+    cursor = mongo.find(mongo, ns = "linkedin.people", limit = 100L, skip = 0L)
     while (mongo.cursor.next(cursor)) {
         value = mongo.cursor.value(cursor)
         name <-  mongo.bson.value(value, "firstname")
@@ -81,11 +82,18 @@ clustering <- function(){
     result <- result[,-1]
     
     result.features = result
-    View(result.features)
+    #View(result.features)
 
-    results <- kmeans(result.features, 3)
-    print(results)
-    plot(result[,4], result[,2], col=results$cluster, xlab = "x weight", ylab = "y weight", main="Clustering")
+    #print(results)
+    #plot(result[,4], result[,2], col=results$cluster, xlab = "x weight", ylab = "y weight", main="Clustering")
+    cosine_result <- cosine(result)
+    #cosine_result[!is.finite(cosine_result),]
+    #cosine_result[!is.finite(cosine_result)] <- 0.00000003
+    cosine_result[is.na(cosine_result)] <- 0.00000001
+    View(cosine_result)
+    results <- kmeans(data.matrix(cosine_result), 3)
+    plot(cosine_result[,1], cosine_result[,2], col=results$cluster, xlab = "x weight1", ylab = "y weight2", main="Clustering")
+    
 }
 
 mongo <- mongo.create()
