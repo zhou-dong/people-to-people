@@ -1,6 +1,12 @@
 # Use K-Means to clustering
 
-<img alt="k means" src="/img/relations.png"/>
+<img alt="k means" src="/img/relations5.png"/>
+
+<img alt="k means" src="/img/relations10.png"/>
+
+<img alt="k means" src="/img/relations15.png"/>
+
+<img alt="k means" src="/img/relations20.png"/>
 
 <img alt="k means" src="/img/clustering2.png"/>
 
