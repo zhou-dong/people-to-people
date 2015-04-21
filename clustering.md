@@ -5,5 +5,6 @@
 
 <img alt="k means" src="/img/clustering2.png"/>
 
+<img alt="k means" src="/img/clustering3.png"/>
 
-
+<img alt="k means" src="/img/clustering5.png"/>
