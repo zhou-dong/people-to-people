@@ -84,8 +84,35 @@ clustering <- function(){
     #View(result.features)
     cosine_result <- cosine(result)
     cosine_result[is.na(cosine_result)] <- 0.00000001
+    #View(cosine_result)
     #kmeansClustering(cosine_result)
-    recommendation(cosine_result[3,])
+    #recommendation(cosine_result[3,])
+    relations(cosine_result)
+}
+
+relations <- function(rel_input){
+    names <- rownames(rel_input)
+    vertexs <- vector()
+    weights <- vector()
+    for(x in 1: length(names)){
+        for (y in 1: length(names)){
+            weight = rel_input[x,y]
+            if(weight==1)
+                next
+            weights <- c(weights, as.double(weight)*1)
+            vertexs <- c(vertexs, y)
+            vertexs <- c(vertexs, x) 
+        }
+    }
+    print(vertexs)
+    print(names)
+    print(weights)
+    g <- graph(vertexs)
+    V(g)$color <- rainbow(length(names))
+    V(g)$name <- unlist(names)
+    E(g)$weight <- weights
+    summary(g)
+    plot(g, edge.width=E(g)$weight, main="Relations",edge.arrow.size=0.2)
 }
 
 recommendation <- function(input){
@@ -105,7 +132,6 @@ recommendation <- function(input){
         realLength = realLength + 1
         names <- c(names, name)
         weights <- c(weights, as.double(weight)*10)
-
     }
     for (x in 1: realLength){
         vertexs <- c(vertexs, x)
@@ -124,7 +150,6 @@ recommendation <- function(input){
 }
 
 kmeansClustering <- function(cos_result){
-    View(cos_result)
     results <- kmeans(data.matrix(cos_result), 3)
     plot(cos_result[,16], cos_result[,15], col=results$cluster, xlab = "x-weight", ylab = "y-weight", main="Clustering")
 }
