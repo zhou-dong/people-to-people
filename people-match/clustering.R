@@ -69,7 +69,7 @@ add_weight_to_person <- function(data, person, cat, dictionary){
 
 clustering <- function(){
     result <- matrix(nrow = length(init_names()))
-    cursor = mongo.find(mongo, ns = "linkedin.people", limit = 5L, skip = 0L)
+    cursor = mongo.find(mongo, ns = "linkedin.people", limit = 20L, skip = 0L)
     while (mongo.cursor.next(cursor)) {
         value = mongo.cursor.value(cursor)
         name <-  mongo.bson.value(value, "firstname")
@@ -83,7 +83,7 @@ clustering <- function(){
     result.features = result
     #View(result.features)
     cosine_result <- cosine(result)
-    cosine_result[is.na(cosine_result)] <- 0.00000001
+    cosine_result[is.na(cosine_result)] <- 1e-08
     View(cosine_result)
     #kmeansClustering(cosine_result)
     #recommendation(cosine_result[3,])
@@ -97,9 +97,9 @@ relations <- function(rel_input){
     for(x in 1: length(names)){
         for (y in 1: length(names)){
             weight = rel_input[x,y]
-            if(weight==1)
+            if(weight==1 || weight==1e-08 || weight<0.1)
                 next
-            weights <- c(weights, as.double(weight)*5)
+            weights <- c(weights, as.double(weight)*1)
             vertexs <- c(vertexs, y)
             vertexs <- c(vertexs, x) 
         }
@@ -112,7 +112,7 @@ relations <- function(rel_input){
     V(g)$name <- unlist(names)
     E(g)$weight <- weights
     summary(g)
-    plot(g, edge.width=E(g)$weight, main="Relations",edge.arrow.size=0.2)
+    plot(g, edge.width=E(g)$weight, main="Matching Between People",edge.arrow.size=0.1)
 }
 
 recommendation <- function(input){
