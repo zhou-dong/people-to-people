@@ -13,7 +13,7 @@ sort = mongo.bson.from.buffer(sort)
 vertexs <- vector()
 names <- vector()
 weights <- vector()
-cursor = mongo.find(mongo, ns = "linkedin.stemed_keywords", limit = 1L, skip = 14L, sort = sort)
+cursor = mongo.find(mongo, ns = "linkedin.stemed_keywords", limit = 1L, skip = 3L, sort = sort)
 while (mongo.cursor.next(cursor)) {
     value = mongo.cursor.value(cursor)
     stem <- mongo.bson.value(value, '_id')
