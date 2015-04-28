@@ -8,7 +8,7 @@
 
 <img alt="k means" src="/img/relations5.png"/>
 
-<img alt="k means" src="/img/matching.png"/>
+<img alt="k means" src="/img/matching.pdf"/>
 
 <img alt="k means" src="/img/clustering2.png"/>
 
