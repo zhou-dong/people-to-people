@@ -68,3 +68,8 @@
  - use graph to figure out what should we do
 
 ### 7. Show Result
+
+### 8. More
+
+ - Because our result is sparse, so the result is not that great.
+ - We can use SVD to Reduce the dimension to improve our result.
